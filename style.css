@@ -19,13 +19,14 @@ body {
   line-height: 1.7;
 }
 
+/* هدر */
 header {
   background: var(--yellow);
   color: #000;
-  padding: clamp(0.8rem, 2vw, 1.5rem);
+  padding: clamp(0.4rem, 1vw, 0.8rem); /* کاهش ارتفاع */
   text-align: center;
   font-weight: 700;
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1rem, 2vw, 1.3rem); /* جمع‌وجور و خوانا */
   position: relative;
   z-index: 10;
 }
@@ -33,7 +34,7 @@ header {
 /* دکمه تغییر زبان */
 #lang-switch {
   position: fixed;
-  top: 4rem; /* فاصله از بالای صفحه */
+  top: 7rem; /* فاصله مناسب از هدر */
   left: 1rem;
   width: 50px;
   height: 50px;
@@ -48,7 +49,7 @@ header {
   z-index: 1000;
   user-select: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 2px #000; /* outline ظاهری */
+  box-shadow: 0 0 0 2px #000;
 }
 
 #lang-switch:hover {
@@ -56,12 +57,14 @@ header {
   box-shadow: 0 0 0 3px #000;
 }
 
+/* ریسپانسیو موبایل */
 @media (max-width: 600px) {
   #lang-switch {
-    top: 3.5rem;
+    top: 8rem; /* فاصله بیشتر برای موبایل */
   }
 }
 
+/* Hero */
 #hero {
   position: relative;
   width: 100%;
@@ -77,15 +80,20 @@ header {
   border-radius: 6px;
 }
 
+/* باکس متن زیر Hero */
 #hero-note {
-  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.65); /* شفاف و شیک */
+  padding: 1.5rem 2rem;
   text-align: center;
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
   color: var(--yellow);
   max-width: 900px;
-  margin: -1rem auto 2rem auto;
+  margin: 2rem auto; /* فاصله از Hero */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
+/* Main */
 main {
   display: flex;
   flex-direction: column;
@@ -97,26 +105,27 @@ main {
 #gallery {
   padding: 0 1.5rem 3rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem; /* فاصله مناسب بین کارت‌ها */
 }
 
 .card {
   background: var(--card);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0,0,0,.5);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5);
 }
 
 .card img {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .card .text {
@@ -150,7 +159,7 @@ footer {
   line-height: 1.4;
 }
 
-/* انیمیشن Reveal */
+/* Reveal animation */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
