@@ -15,7 +15,15 @@ async function loadHero() {
   const hero = await loadJSON("data/hero.json");
   document.getElementById("hero").innerHTML = `
     <img src="images/${hero.image}" alt="${hero.alt}">
+    <div id="hero-note"></div>
   `;
+  loadHeroNote();
+}
+
+async function loadHeroNote() {
+  const note = await loadJSON("data/note.json");
+  const text = note.notes[0][currentLang] || note.notes[0].fa;
+  document.getElementById("hero-note").innerText = text;
 }
 
 async function loadGallery() {
@@ -23,7 +31,7 @@ async function loadGallery() {
   const container = document.getElementById("gallery");
   container.innerHTML = "";
 
-  gallery.forEach((item, i) => {
+  gallery.forEach(item => {
     const card = document.createElement("div");
     card.className = "card reveal";
 
@@ -51,14 +59,15 @@ async function loadFooter() {
 }
 
 function initLangSwitch() {
-  document.querySelectorAll("#lang-switch button").forEach(btn => {
-    btn.onclick = () => {
-      currentLang = btn.dataset.lang;
-      document.documentElement.lang = currentLang;
-      document.documentElement.dir = currentLang === "fa" ? "rtl" : "ltr";
-      start();
-    };
-  });
+  const btn = document.getElementById("lang-switch");
+  btn.innerText = currentLang === "fa" ? "EN" : "FA";
+  btn.onclick = () => {
+    currentLang = currentLang === "fa" ? "en" : "fa";
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === "fa" ? "rtl" : "ltr";
+    btn.innerText = currentLang === "fa" ? "EN" : "FA";
+    start();
+  };
 }
 
 function initReveal() {
@@ -73,7 +82,7 @@ function initReveal() {
 
   document.querySelectorAll(".reveal").forEach(el => {
     el.style.opacity = 0;
-    el.style.transform = "translateY(30px)";
+    el.style.transform = "translateY(20px)";
     el.style.transition = "0.6s ease";
     observer.observe(el);
   });
