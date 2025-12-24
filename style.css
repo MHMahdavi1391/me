@@ -5,7 +5,11 @@
   --gray: #9e9e9e;
 }
 
-* { box-sizing: border-box; margin:0; padding:0; }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
@@ -22,11 +26,14 @@ header {
   text-align: center;
   font-weight: 700;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
+  position: relative;
+  z-index: 10;
 }
 
+/* دکمه تغییر زبان */
 #lang-switch {
   position: fixed;
-  top: 1rem;
+  top: 4rem; /* فاصله از بالای صفحه */
   left: 1rem;
   width: 50px;
   height: 50px;
@@ -40,11 +47,19 @@ header {
   cursor: pointer;
   z-index: 1000;
   user-select: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 2px #000; /* outline ظاهری */
 }
 
 #lang-switch:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 0 3px #000;
+}
+
+@media (max-width: 600px) {
+  #lang-switch {
+    top: 3.5rem;
+  }
 }
 
 #hero {
@@ -59,6 +74,7 @@ header {
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  border-radius: 6px;
 }
 
 #hero-note {
@@ -77,6 +93,7 @@ main {
   padding-bottom: 2rem;
 }
 
+/* گالری */
 #gallery {
   padding: 0 1.5rem 3rem;
   display: grid;
@@ -123,6 +140,7 @@ main {
   display: block;
 }
 
+/* فوتر */
 footer {
   border-top: 1px solid #2a2a2a;
   padding: clamp(0.8rem, 2vw, 1.5rem);
@@ -130,4 +148,11 @@ footer {
   color: var(--gray);
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   line-height: 1.4;
+}
+
+/* انیمیشن Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
 }
