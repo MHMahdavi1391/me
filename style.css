@@ -1,8 +1,10 @@
 :root {
   --yellow: #f5c400;
   --black: #0b0b0b;
-  --card: #151515;
+  --card: rgba(255,255,255,0.05); /* شفاف و مات */
   --gray: #9e9e9e;
+  --white: #ffffff;
+  --hero-bg: rgba(255,255,255,0.1);
 }
 
 * { 
@@ -14,33 +16,36 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
                "Segoe UI", Roboto, Arial, sans-serif;
-  background: var(--black);
-  color: #fff;
+  background: linear-gradient(120deg, #f5f5f5, #e0f7fa); /* پس‌زمینه روشن و gradient */
+  color: var(--black);
   line-height: 1.7;
+  backdrop-filter: blur(8px);
 }
 
 /* هدر */
 header {
-  background: var(--yellow);
-  color: #000;
-  padding: clamp(0.4rem, 1vw, 0.8rem); /* کاهش ارتفاع */
+  background: rgba(245,196,0,0.85);
+  color: var(--black);
+  padding: clamp(0.4rem, 1vw, 0.8rem);
   text-align: center;
   font-weight: 700;
-  font-size: clamp(1rem, 2vw, 1.3rem); /* جمع‌وجور و خوانا */
+  font-size: clamp(1rem, 2vw, 1.3rem);
   position: relative;
   z-index: 10;
+  border-radius: 0 0 12px 12px;
+  backdrop-filter: blur(8px);
 }
 
 /* دکمه تغییر زبان */
 #lang-switch {
   position: fixed;
-  top: 7rem; /* فاصله مناسب از هدر */
+  top: 7rem;
   left: 1rem;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--yellow);
-  color: #000;
+  background: rgba(245,196,0,0.85);
+  color: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,18 +54,19 @@ header {
   z-index: 1000;
   user-select: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 2px #000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
 }
 
 #lang-switch:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 0 3px #000;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
 }
 
 /* ریسپانسیو موبایل */
 @media (max-width: 600px) {
   #lang-switch {
-    top: 8rem; /* فاصله بیشتر برای موبایل */
+    top: 8rem;
   }
 }
 
@@ -68,29 +74,34 @@ header {
 #hero {
   position: relative;
   width: 100%;
+  background: var(--hero-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  margin-bottom: 2rem;
 }
 
 #hero img {
   width: 100%;
   height: auto;
   max-height: 65vh;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   margin: 0 auto;
-  border-radius: 6px;
 }
 
 /* باکس متن زیر Hero */
 #hero-note {
-  background: rgba(0,0,0,0.65); /* شفاف و شیک */
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
   padding: 1.5rem 2rem;
   text-align: center;
   font-size: clamp(0.95rem, 2.2vw, 1.15rem);
-  color: var(--yellow);
+  color: var(--black);
   max-width: 900px;
-  margin: 2rem auto; /* فاصله از Hero */
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 
 /* Main */
@@ -98,34 +109,35 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 1rem;
 }
 
 /* گالری */
 #gallery {
-  padding: 0 1.5rem 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem; /* فاصله مناسب بین کارت‌ها */
+  gap: 1rem;
 }
 
 .card {
-  background: var(--card);
-  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
   overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
 .card img {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px 12px 0 0;
 }
 
 .card .text {
@@ -151,12 +163,192 @@ main {
 
 /* فوتر */
 footer {
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid rgba(0,0,0,0.1);
   padding: clamp(0.8rem, 2vw, 1.5rem);
   text-align: center;
-  color: var(--gray);
+  color: var(--black);
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   line-height: 1.4;
+  backdrop-filter: blur(8px);
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}:root {
+  --yellow: #f5c400;
+  --black: #0b0b0b;
+  --card: rgba(255,255,255,0.05); /* شفاف و مات */
+  --gray: #9e9e9e;
+  --white: #ffffff;
+  --hero-bg: rgba(255,255,255,0.1);
+}
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(120deg, #f5f5f5, #e0f7fa); /* پس‌زمینه روشن و gradient */
+  color: var(--black);
+  line-height: 1.7;
+  backdrop-filter: blur(8px);
+}
+
+/* هدر */
+header {
+  background: rgba(245,196,0,0.85);
+  color: var(--black);
+  padding: clamp(0.4rem, 1vw, 0.8rem);
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  position: relative;
+  z-index: 10;
+  border-radius: 0 0 12px 12px;
+  backdrop-filter: blur(8px);
+}
+
+/* دکمه تغییر زبان */
+#lang-switch {
+  position: fixed;
+  top: 7rem;
+  left: 1rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(245,196,0,0.85);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+}
+
+#lang-switch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+/* ریسپانسیو موبایل */
+@media (max-width: 600px) {
+  #lang-switch {
+    top: 8rem;
+  }
+}
+
+/* Hero */
+#hero {
+  position: relative;
+  width: 100%;
+  background: var(--hero-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  margin-bottom: 2rem;
+}
+
+#hero img {
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* باکس متن زیر Hero */
+#hero-note {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  color: var(--black);
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Main */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+/* گالری */
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.card .text {
+  padding: 0.9rem 1rem 1.2rem;
+}
+
+.card h3 {
+  margin-bottom: 0.4rem;
+  color: var(--yellow);
+  font-size: 1rem;
+}
+
+.card p {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* فوتر */
+footer {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  text-align: center;
+  color: var(--black);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  line-height: 1.4;
+  backdrop-filter: blur(8px);
 }
 
 /* Reveal animation */
