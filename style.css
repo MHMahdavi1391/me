@@ -6,28 +6,18 @@
   --gray: #6e6e6e;
 }
 
-/* اسلاید پس زمینه */
+/* پس‌زمینه gradient مینیمال و روشن */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
                "Segoe UI", Roboto, Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: var(--text-black);
-  animation: bgSlide 30s infinite ease-in-out;
-  background-size: cover;
-  background-position: center center;
+  background: linear-gradient(135deg, #e0f7fa, #f0f0f0);
   overflow-x: hidden;
 }
 
-/* انیمیشن تغییر پس‌زمینه */
-@keyframes bgSlide {
-  0% { background-image: url("https://cdn.pixabay.com/photo/2017/07/12/14/42/circuit-2496578_1280.jpg"); }
-  33% { background-image: url("https://cdn.pixabay.com/photo/2016/11/29/05/46/technology-1868728_1280.jpg"); }
-  66% { background-image: url("https://cdn.pixabay.com/photo/2018/05/30/21/38/background-3447403_1280.jpg"); }
-  100% { background-image: url("https://cdn.pixabay.com/photo/2017/07/12/14/42/circuit-2496578_1280.jpg"); }
-}
-
-/* مات کردن پس‌زمینه‌ی محتوای اصلی برای Liquid Glass */
+/* کارت‌ها و بخش‌ها شیشه‌ای مات */
 main, header, footer, .card, #hero-note {
   background: var(--card-bg);
   backdrop-filter: blur(12px);
@@ -43,6 +33,7 @@ header {
   font-size: clamp(1rem, 2vw, 1.3rem);
   text-align: center;
   font-weight: 700;
+  border-radius: 0 0 12px 12px;
 }
 
 /* Hero */
@@ -108,4 +99,30 @@ footer {
   margin-top: 2rem;
   font-size: 0.9rem;
   color: var(--gray);
+}
+
+/* دکمه تغییر زبان */
+#lang-switch {
+  position: fixed;
+  top: 25%; /* تقریبا روی خط دوم وقتی صفحه رو به چهار قسمت تقسیم کنیم */
+  left: 1rem; /* سمت چپ صفحه */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(245,196,0,0.9);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+#lang-switch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
 }
