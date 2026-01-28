@@ -2,6 +2,48 @@
 let currentLang = "fa";
 let isInitialLoad = true;
 
+// داده‌های استاتیک دو زبانه
+const staticContent = {
+  fa: {
+    tagline: "طراح، فیلمبردار، تولیدکننده محتوا",
+    introCards: [
+      {
+        title: "طراحی و توسعه وب",
+        text: "طراحی سایت‌های مدرن و ریسپانسیو با جدیدترین تکنولوژی‌ها"
+      },
+      {
+        title: "فیلمبرداری و ادیت",
+        text: "تولید محتوای ویدیویی حرفه‌ای با کیفیت بالا"
+      },
+      {
+        title: "عکاسی و گرافیک",
+        text: "عکاسی صنعتی و تبلیغاتی با نورپردازی حرفه‌ای"
+      }
+    ],
+    galleryTitle: "پروژه‌ها و نمونه‌کارها",
+    gallerySubtitle: "نمونه‌ای از کارهای انجام شده"
+  },
+  en: {
+    tagline: "Designer, Videographer, Content Creator",
+    introCards: [
+      {
+        title: "Web Design & Development",
+        text: "Modern and responsive website design using the latest technologies"
+      },
+      {
+        title: "Videography & Editing",
+        text: "Professional video content production with high quality"
+      },
+      {
+        title: "Photography & Graphics",
+        text: "Industrial and advertising photography with professional lighting"
+      }
+    ],
+    galleryTitle: "Projects & Portfolio",
+    gallerySubtitle: "A selection of completed works"
+  }
+};
+
 // تابع کمکی برای بارگذاری JSON
 async function loadJSON(path) {
   try {
@@ -24,6 +66,31 @@ async function loadSite() {
     // به‌روزرسانی title صفحه
     document.title = `${siteName} | بنیان‌گذار DNI CO`;
   }
+}
+
+// بارگذاری محتوای استاتیک (دو زبانه)
+function loadStaticContent() {
+  const content = staticContent[currentLang];
+  
+  // زیرتیتر
+  document.getElementById("tagline").innerText = content.tagline;
+  
+  // کارت‌های معرفی
+  content.introCards.forEach((card, index) => {
+    document.getElementById(`intro-title-${index + 1}`).innerText = card.title;
+    document.getElementById(`intro-text-${index + 1}`).innerText = card.text;
+  });
+  
+  // عنوان‌های گالری
+  document.getElementById("gallery-title").innerHTML = 
+    `<i class="fas fa-images"></i> ${content.galleryTitle}`;
+  document.getElementById("gallery-subtitle").innerText = content.gallerySubtitle;
+  
+  // متن کپی‌رایت (دو زبانه)
+  const copyrightText = currentLang === "fa" 
+    ? "© 2024 محمد حسین مهدوی. تمامی حقوق محفوظ است."
+    : "© 2024 Mohammad Hossein Mahdavi. All rights reserved.";
+  document.querySelector(".copyright").innerText = copyrightText;
 }
 
 // بارگذاری بخش Hero
@@ -192,8 +259,12 @@ function initReveal() {
 // بارگذاری اولیه تمام محتوا
 async function start() {
   try {
-    // نمایش وضعیت لودینگ (اختیاری)
-    document.body.classList.add("loading");
+    // نمایش وضعیت لودینگ
+    document.body.style.opacity = "0.8";
+    document.body.style.transition = "opacity 0.3s";
+    
+    // بارگذاری محتوای استاتیک (اولین بار)
+    loadStaticContent();
     
     // بارگذاری موازی برای عملکرد بهتر
     await Promise.all([
@@ -205,12 +276,14 @@ async function start() {
     
     isInitialLoad = false;
     
-    // حذف حالت لودینگ
-    document.body.classList.remove("loading");
+    // برگشت به حالت عادی
+    setTimeout(() => {
+      document.body.style.opacity = "1";
+    }, 300);
     
   } catch (error) {
     console.error("خطا در بارگذاری صفحه:", error);
-    document.body.classList.remove("loading");
+    document.body.style.opacity = "1";
   }
 }
 
