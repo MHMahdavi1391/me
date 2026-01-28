@@ -2,31 +2,86 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>: محمد حسین مهدوی | بنیان‌گذار DNI CO (دیتک نمای ایران) – طراحی سایت و تولید محتوا</title>
+  <title>محمد حسین مهدوی | بنیان‌گذار DNI CO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="description" content="محمد حسین مهدوی بنیان‌گذار DNI CO (دیتک نمای ایران)، فعال در طراحی سایت، ادیت، فیلمبرداری و تولید محتوای حرفه‌ای.">
-  <meta name="keywords" content="محمد حسین مهدوی, portfolio, personal page,مدرسه امام هادی (ع) , سایت ساز , فیلمبردار, عکاس ,ادیتور ,Mohammad hosein Mahdavi ">
-
+  <meta name="description" content="محمد حسین مهدوی - بنیان‌گذار DNI CO، فعال در طراحی سایت، فیلمبرداری، عکاسی و تولید محتوای حرفه‌ای">
+  <meta name="keywords" content="محمد حسین مهدوی, portfolio, طراحی سایت, فیلمبردار, عکاس, تولید محتوا">
+  
+  <!-- فونت زیبای فارسی -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- آیکون‌ها -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!-- دکمه تغییر زبان ثابت -->
+  <button id="lang-switch" aria-label="تغییر زبان">
+    <span>EN</span>
+  </button>
+
+  <!-- هدر -->
   <header id="header">
-    <h1 id="site-name"></h1>
+    <div class="header-container">
+      <h1 id="site-name" class="fade-in"></h1>
+      <p class="tagline">طراح، فیلمبردار، تولیدکننده محتوا</p>
+    </div>
   </header>
 
-  <main>
-    <section id="hero"></section>
-    <section id="gallery"></section>
+  <!-- بخش اصلی -->
+  <main class="fade-in">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <!-- Hero content توسط JS پر می‌شود -->
+    </section>
+
+    <!-- بخش توضیحات -->
+    <section class="intro-section">
+      <div class="intro-card">
+        <i class="fas fa-laptop-code"></i>
+        <h2>طراحی و توسعه وب</h2>
+        <p>طراحی سایت‌های مدرن و ریسپانسیو با جدیدترین تکنولوژی‌ها</p>
+      </div>
+      <div class="intro-card">
+        <i class="fas fa-video"></i>
+        <h2>فیلمبرداری و ادیت</h2>
+        <p>تولید محتوای ویدیویی حرفه‌ای با کیفیت بالا</p>
+      </div>
+      <div class="intro-card">
+        <i class="fas fa-camera"></i>
+        <h2>عکاسی و گرافیک</h2>
+        <p>عکاسی صنعتی و تبلیغاتی با نورپردازی حرفه‌ای</p>
+      </div>
+    </section>
+
+    <!-- گالری پروژه‌ها -->
+    <section class="gallery-section">
+      <div class="section-header">
+        <h2><i class="fas fa-images"></i> پروژه‌ها و نمونه‌کارها</h2>
+        <p>نمونه‌ای از کارهای انجام شده</p>
+      </div>
+      <div id="gallery" class="gallery-grid">
+        <!-- کارت‌ها توسط JS ساخته می‌شوند -->
+      </div>
+    </section>
   </main>
 
-  <footer id="footer">
-    <div id="lang-switch">
-      <button data-lang="fa">FA</button> |
-      <button data-lang="en">EN</button>
+  <!-- فوتر -->
+  <footer id="footer" class="fade-in">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      </div>
+      <p id="footer-text"></p>
+      <p class="copyright">© 2024 محمد حسین مهدوی. تمامی حقوق محفوظ است.</p>
     </div>
-    <p id="footer-text"></p>
   </footer>
 
   <script src="app.js"></script>
