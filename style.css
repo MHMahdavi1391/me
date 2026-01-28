@@ -32,13 +32,23 @@ body {
 
 /* انیمیشن‌ها */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
 }
 
 .fade-in {
@@ -285,6 +295,20 @@ body {
   color: inherit;
 }
 
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.card-link i {
+  font-size: 0.8rem;
+}
+
 /* فوتر */
 #footer {
   background: var(--secondary);
@@ -300,32 +324,6 @@ body {
   text-align: center;
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 30px;
-}
-
-.social-links a {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.3rem;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  background: var(--primary);
-  color: var(--dark);
-  transform: translateY(-5px);
-}
-
 #footer-text {
   font-size: 1.1rem;
   margin-bottom: 20px;
@@ -339,7 +337,7 @@ body {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
   margin-top: 30px;
-  padding-top: 20px;
+  padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -395,16 +393,6 @@ body {
   #hero-note {
     padding: 20px;
   }
-  
-  .social-links {
-    gap: 20px;
-  }
-  
-  .social-links a {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
-  }
 }
 
 /* ریسپانسیو برای موبایل کوچک */
@@ -451,15 +439,5 @@ body {
   #footer {
     padding: 40px 15px 30px;
     border-radius: 20px 20px 0 0;
-  }
-  
-  .social-links {
-    gap: 15px;
-  }
-  
-  .social-links a {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
   }
 }
