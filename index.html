@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره من | محمد حسین مهدوی — LTC</title>
+    
+    <!-- فونت اینتر -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- آیکون‌های فونت‌اوسام -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0a0f1c;
+            --primary-surface: #141b2b;
+            --primary-light: #1e2840;
+            --accent: #d4a843;
+            --accent-glow: rgba(212, 168, 67, 0.25);
+            --text-primary: #f2f2f2;
+            --text-secondary: #a0a7b8;
+            --text-muted: #6b7280;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.75rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--primary);
+            background-image: 
+                radial-gradient(circle at 20% 10%, rgba(212, 168, 67, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 90%, rgba(212, 168, 67, 0.03) 0%, transparent 50%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+            direction: rtl;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* === کارت اصلی === */
+        .about-card {
+            background: var(--primary-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl) var(--space-lg);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.7;
+        }
+
+        /* === هدر با لوگو === */
+        .about-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo-wrapper {
+            display: inline-block;
+            background: #ffffff;
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-img {
+            display: block;
+            height: 55px;
+            width: auto;
+        }
+
+        .about-header h1 {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-top: var(--space-sm);
+        }
+
+        .about-header .tagline {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: var(--space-xs);
+            letter-spacing: 0.02em;
+        }
+
+        /* === بخش‌های محتوا === */
+        .bio-section {
+            margin-bottom: var(--space-lg);
+        }
+
+        .bio-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .bio-section h2 i {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .bio-section p {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 0.98rem;
+            text-align: justify;
+        }
+
+        /* === کارت‌های آمار === */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: var(--space-sm);
+            margin: var(--space-lg) 0;
+        }
+
+        .stat-card {
+            background: var(--primary-light);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            text-align: center;
+            transition: all var(--transition-smooth);
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-card .stat-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-card .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* === تگ‌های مهارت === */
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+        }
+
+        .skill-tag {
+            background: var(--primary-light);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: all var(--transition-smooth);
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: #0a0f1c;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* === دکمه بازگشت === */
+        .back-link-wrapper {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition-smooth);
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link i {
+            margin-left: 6px;
+        }
+
+        /* === ریسپانسیو === */
+        @media (max-width: 600px) {
+            .about-card {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .bio-section p {
+                text-align: right;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="about-card">
+            
+            <!-- هدر با لوگو -->
+            <header class="about-header">
+                <div class="logo-wrapper">
+                    <img 
+                        src="https://s8.uupload.ir/files/logo_sr9t.jpg" 
+                        alt="LTC Logo" 
+                        class="logo-img"
+                        loading="lazy"
+                    >
+                </div>
+                <h1>محمد حسین مهدوی</h1>
+                <p class="tagline">بنیانگذار و مدیر کل Lumen Technologies Co.</p>
+            </header>
+
+            <!-- بیوگرافی اصلی -->
+            <div class="bio-section">
+                <h2><i class="fas fa-user-circle"></i> درباره من</h2>
+                <p>
+                    محمد حسین مهدوی، بنیانگذار و مدیر کل شرکت Lumen Technologies Co. (LTC) است؛ 
+                    یک مجموعه فناورانه، امنیتی و رسانه‌ای که با هدف ارائه خدمات دیجیتال، تولید محتوا 
+                    و حمایت از هنرمندان مستقل پایه‌گذاری شده. او از سنین پایین با اشتیاق به دنیای 
+                    فناوری، برنامه‌نویسی و مدیریت پروژه‌های دیجیتال وارد این عرصه شد.
+                </p>
+            </div>
+
+            <!-- آمار -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-building"></i></div>
+                    <div class="stat-number">LTC</div>
+                    <div class="stat-label">شرکت فناورانه</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-music"></i></div>
+                    <div class="stat-number">فراوا</div>
+                    <div class="stat-label">لیبل موسیقی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                    <div class="stat-number">ltc.iddns.ir</div>
+                    <div class="stat-label">پورتال رسمی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-shield-haltered"></i></div>
+                    <div class="stat-number">امنیت</div>
+                    <div class="stat-label">اولویت ما</div>
+                </div>
+            </div>
+
+            <!-- فعالیت‌ها -->
+            <div class="bio-section">
+                <h2><i class="fas fa-briefcase"></i> فعالیت‌ها و مسئولیت‌ها</h2>
+                <p>
+                    وی علاوه بر مدیریت LTC، مسئولیت مدیریت تولید محتوا و رسانه در 
+                    مجتمع فرهنگی آموزشی امام هادی (ع) را نیز بر عهده دارد. لیبل موسیقی 
+                    «فراوا» و یک پلتفرم تخصصی برای خدمات دیجیتال (شامل سفارش ادیت، 
+                    طراحی پاورپوینت حرفه‌ای و سایر خدمات محتوایی) از دیگر پروژه‌های 
+                    تحت مدیریت اوست.
+                </p>
+            </div>
+
+            <!-- مهارت‌ها -->
+            <div class="bio-section">
+                <h2><i class="fas fa-code"></i> مهارت‌ها و تخصص‌ها</h2>
+                <div class="skills-tags">
+                    <span class="skill-tag">امنیت سایبری</span>
+                    <span class="skill-tag">مدیریت پروژه</span>
+                    <span class="skill-tag">تولید محتوا</span>
+                    <span class="skill-tag">طراحی وب</span>
+                    <span class="skill-tag">برنامه‌نویسی</span>
+                    <span class="skill-tag">مشاوره فناوری</span>
+                    <span class="skill-tag">نشر موسیقی</span>
+                    <span class="skill-tag">طراحی استراتژی</span>
+                    <span class="skill-tag">مدیریت تیم</span>
+                </div>
+            </div>
+
+            <!-- نقل‌قول -->
+            <div class="bio-section">
+                <h2><i class="fas fa-quote-right"></i> باور من</h2>
+                <p style="font-style: italic; text-align: center; color: var(--accent); font-size: 1.1rem;">
+                    «شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.»
+                </p>
+            </div>
+
+            <!-- دکمه بازگشت -->
+            <div class="back-link-wrapper">
+                <a href="./index.html" class="back-link">
+                    <i class="fas fa-arrow-right"></i> بازگشت به هاب LTC
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // افکت اسکرول نرم و هایلایت کارت‌های آمار
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // انیمیشن ساده برای کارت‌های آمار هنگام لود صفحه
+            const statCards = document.querySelectorAll('.stat-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            statCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.4s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // افکت تایپ برای تگ‌لاین (اختیاری، فقط یه حس نرم میده)
+            const tagline = document.querySelector('.tagline');
+            if (tagline) {
+                tagline.style.opacity = '0';
+                tagline.style.transition = 'opacity 0.8s ease';
+                setTimeout(() => {
+                    tagline.style.opacity = '1';
+                }, 300);
+            }
+
+        });
+    </script>
+</body>
+</html>
