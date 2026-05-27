@@ -20,8 +20,8 @@ const staticContent = {
         text: "عکاسی صنعتی و تبلیغاتی با نورپردازی حرفه‌ای"
       }
     ],
-    galleryTitle: "پروژه‌ها و نمونه‌کارها",
-    gallerySubtitle: "نمونه‌ای از کارهای انجام شده"
+    galleryTitle: "",
+    gallerySubtitle: ""
   },
   en: {
     tagline: "Designer, Videographer, Content Creator",
@@ -39,8 +39,8 @@ const staticContent = {
         text: "Industrial and advertising photography with professional lighting"
       }
     ],
-    galleryTitle: "Projects & Portfolio",
-    gallerySubtitle: "A selection of completed works"
+    galleryTitle: "",
+    gallerySubtitle: ""
   }
 };
 
