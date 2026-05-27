@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>درباره من | محمد حسین مهدوی — LTC</title>
     
-    <!-- فونت اینتر -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    
-    <!-- آیکون‌های فونت‌اوسام -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
@@ -24,14 +21,14 @@
             --text-secondary: #a0a7b8;
             --text-muted: #6b7280;
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --radius-sm: 10px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.75rem;
-            --space-lg: 2.5rem;
-            --space-xl: 4rem;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --space-xs: 0.4rem;
+            --space-sm: 0.8rem;
+            --space-md: 1.3rem;
+            --space-lg: 2rem;
+            --space-xl: 2.5rem;
             --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -42,8 +39,9 @@
         }
 
         html {
-            font-size: 16px;
+            font-size: 15px;
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
@@ -57,15 +55,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--space-md);
+            padding: var(--space-sm);
             direction: rtl;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
+            padding: var(--space-xs);
         }
 
         /* === کارت اصلی === */
@@ -73,7 +72,7 @@
             background: var(--primary-surface);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: var(--space-xl) var(--space-lg);
+            padding: var(--space-lg) var(--space-md);
             backdrop-filter: blur(10px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             position: relative;
@@ -94,128 +93,142 @@
         /* === هدر با لوگو === */
         .about-header {
             text-align: center;
-            margin-bottom: var(--space-xl);
-            padding-bottom: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .logo-wrapper {
             display: inline-block;
             background: #ffffff;
-            padding: 12px 18px;
+            padding: 10px 16px;
             border-radius: var(--radius-md);
             margin-bottom: var(--space-md);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
         }
 
         .logo-img {
             display: block;
-            height: 55px;
+            max-height: 50px;
             width: auto;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         .about-header h1 {
-            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
             font-weight: 700;
             letter-spacing: -0.01em;
             color: var(--text-primary);
             margin-top: var(--space-sm);
+            word-break: keep-all;
+            overflow-wrap: break-word;
         }
 
         .about-header .tagline {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--accent);
             font-weight: 500;
             margin-top: var(--space-xs);
             letter-spacing: 0.02em;
+            overflow-wrap: break-word;
         }
 
         /* === بخش‌های محتوا === */
         .bio-section {
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-md);
         }
 
         .bio-section h2 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--accent);
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-xs);
             display: flex;
             align-items: center;
             gap: var(--space-xs);
+            flex-wrap: wrap;
         }
 
         .bio-section h2 i {
-            font-size: 1.2rem;
+            font-size: 1rem;
             opacity: 0.8;
+            flex-shrink: 0;
         }
 
         .bio-section p {
             color: var(--text-secondary);
             font-weight: 300;
-            font-size: 0.98rem;
+            font-size: 0.9rem;
             text-align: justify;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         /* === کارت‌های آمار === */
         .stats-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--space-sm);
-            margin: var(--space-lg) 0;
+            margin: var(--space-md) 0;
         }
 
         .stat-card {
             background: var(--primary-light);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: var(--space-md);
+            padding: var(--space-sm);
             text-align: center;
             transition: all var(--transition-smooth);
+            min-width: 0;
         }
 
         .stat-card:hover {
             border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .stat-card .stat-icon {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             color: var(--accent);
-            margin-bottom: var(--space-xs);
+            margin-bottom: 4px;
         }
 
         .stat-card .stat-number {
-            font-size: 1.6rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text-primary);
+            overflow-wrap: break-word;
+            word-break: break-all;
         }
 
         .stat-card .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         /* === تگ‌های مهارت === */
         .skills-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-top: var(--space-sm);
+            gap: 6px;
+            margin-top: var(--space-xs);
         }
 
         .skill-tag {
             background: var(--primary-light);
             color: var(--text-secondary);
             border: 1px solid var(--border-subtle);
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 400;
             transition: all var(--transition-smooth);
             cursor: default;
+            white-space: nowrap;
         }
 
         .skill-tag:hover {
@@ -228,16 +241,17 @@
         /* === دکمه بازگشت === */
         .back-link-wrapper {
             text-align: center;
-            margin-top: var(--space-xl);
+            margin-top: var(--space-lg);
         }
 
         .back-link {
             display: inline-block;
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             transition: color var(--transition-smooth);
+            padding: 8px 16px;
         }
 
         .back-link:hover {
@@ -248,22 +262,88 @@
             margin-left: 6px;
         }
 
-        /* === ریسپانسیو === */
-        @media (max-width: 600px) {
+        /* === ریسپانسیو برای موبایل‌های کوچک === */
+        @media (max-width: 480px) {
+            body {
+                padding: var(--space-xs);
+            }
+
+            .container {
+                padding: 0;
+            }
+
             .about-card {
-                padding: var(--space-lg) var(--space-md);
+                padding: var(--space-md) var(--space-sm);
+                border-radius: var(--radius-md);
+            }
+
+            .logo-wrapper {
+                padding: 8px 12px;
             }
 
             .logo-img {
-                height: 40px;
+                max-height: 40px;
+            }
+
+            .about-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .about-header .tagline {
+                font-size: 0.8rem;
+            }
+
+            .bio-section h2 {
+                font-size: 1rem;
             }
 
             .bio-section p {
+                font-size: 0.82rem;
                 text-align: right;
             }
 
             .stats-row {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+
+            .stat-card {
+                padding: var(--space-xs);
+            }
+
+            .stat-card .stat-icon {
+                font-size: 1.2rem;
+            }
+
+            .stat-card .stat-number {
+                font-size: 0.95rem;
+            }
+
+            .stat-card .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .skill-tag {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+        }
+
+        /* === ریسپانسیو برای تبلت و لپ‌تاپ‌های کوچک === */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .about-card {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* === ریسپانسیو برای لپ‌تاپ و دسکتاپ === */
+        @media (min-width: 769px) {
+            .stats-row {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -272,7 +352,6 @@
     <div class="container">
         <div class="about-card">
             
-            <!-- هدر با لوگو -->
             <header class="about-header">
                 <div class="logo-wrapper">
                     <img 
@@ -286,7 +365,6 @@
                 <p class="tagline">بنیانگذار و مدیر کل Lumen Technologies Co.</p>
             </header>
 
-            <!-- بیوگرافی اصلی -->
             <div class="bio-section">
                 <h2><i class="fas fa-user-circle"></i> درباره من</h2>
                 <p>
@@ -297,7 +375,6 @@
                 </p>
             </div>
 
-            <!-- آمار -->
             <div class="stats-row">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-building"></i></div>
@@ -311,7 +388,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-globe"></i></div>
-                    <div class="stat-number">ltc.iddns.ir</div>
+                    <div class="stat-number">lt-c.iddns.ir</div>
                     <div class="stat-label">پورتال رسمی</div>
                 </div>
                 <div class="stat-card">
@@ -321,7 +398,6 @@
                 </div>
             </div>
 
-            <!-- فعالیت‌ها -->
             <div class="bio-section">
                 <h2><i class="fas fa-briefcase"></i> فعالیت‌ها و مسئولیت‌ها</h2>
                 <p>
@@ -333,7 +409,6 @@
                 </p>
             </div>
 
-            <!-- مهارت‌ها -->
             <div class="bio-section">
                 <h2><i class="fas fa-code"></i> مهارت‌ها و تخصص‌ها</h2>
                 <div class="skills-tags">
@@ -349,17 +424,15 @@
                 </div>
             </div>
 
-            <!-- نقل‌قول -->
             <div class="bio-section">
                 <h2><i class="fas fa-quote-right"></i> باور من</h2>
-                <p style="font-style: italic; text-align: center; color: var(--accent); font-size: 1.1rem;">
+                <p style="font-style: italic; text-align: center; color: var(--accent); font-size: 1rem;">
                     «شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.»
                 </p>
             </div>
 
-            <!-- دکمه بازگشت -->
             <div class="back-link-wrapper">
-                <a href="./index.html" class="back-link">
+                <a href="https://lt-c.iddns.ir" class="back-link">
                     <i class="fas fa-arrow-right"></i> بازگشت به هاب LTC
                 </a>
             </div>
@@ -368,10 +441,8 @@
     </div>
 
     <script>
-        // افکت اسکرول نرم و هایلایت کارت‌های آمار
         document.addEventListener('DOMContentLoaded', function() {
             
-            // انیمیشن ساده برای کارت‌های آمار هنگام لود صفحه
             const statCards = document.querySelectorAll('.stat-card');
             
             const observer = new IntersectionObserver((entries) => {
@@ -390,7 +461,6 @@
                 observer.observe(card);
             });
 
-            // افکت تایپ برای تگ‌لاین (اختیاری، فقط یه حس نرم میده)
             const tagline = document.querySelector('.tagline');
             if (tagline) {
                 tagline.style.opacity = '0';
