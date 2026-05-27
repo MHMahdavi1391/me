@@ -1,42 +1,17 @@
 [
   {
-    "image": "dna.jpg",
+    "image": "logo.jpg",
     "title": {
-      "fa": "سایت دیتک نمای ایران",
-      "en": "DNI CO Site"
+      "fa": "هاب رسمی شرکت LTC",
+      "en": "LTC Official Hub"
     },
     "text": {
-      "fa": "سایتی برای اینکه بتوانید پروژه سفارش بدید",
-      "en": "the site that you can order projects"
+      "fa": "به تمام سایت های ما دسترسی داشته باشید",
+      "en": "join our websites"
     },
-    "link": "https://mhmahdavi1391.github.io/DNI-CO"
-  },
+    "link": "lt-c.iddns.ir"
+  }
   
-    {
-    "image": "dasdna.jpg",
-    "title": {
-      "fa": "سایت دیتک نمای ایران - بخش اطلاعات و امنیت",
-      "en": "DNI CO - Data and Security Unit"
-    },
-    "text": {
-      "fa": "سایتی خصوصی و قانونی برای اعضا که در ان پرونده های مختلف است",
-      "en": "A private and legal site for members that contains various files."
-    },
-    "link": "https://mhmahdavi1391.github.io/DNI-CO-security/"
-  },
-
-
-  
-    {
-    "image": "pass.jpg",
-    "title": {
-      "fa": "سایت دیتک نمای ایران - رمزگذاری و رمز گشایی متن ",
-      "en": "DNI CO - Encrypting and decrypting text"
-    },
-    "text": {
-      "fa": "سایتی است که با کمک ان میتوانید روی متن های خود با رمز دلخواه خود رمزگذاری کنید و بعدا دوباره با همین سایت و رمز قبلی انها را رمزگشایی کنید",
-      "en": "It is a site that allows you to encrypt your texts with your desired password and then decrypt them again using the same site and the previous password."
-    },
-    "link": "https://mhmahdavi1391.github.io/DNI-CO-PASS"
+    
   }
 ]
