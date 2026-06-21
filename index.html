@@ -7,29 +7,36 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
+        /* ===== Reset & Variables (Light Theme) ===== */
         :root {
-            --primary: #0a0f1c;
-            --primary-surface: #141b2b;
-            --primary-light: #1e2840;
-            --accent: #d4a843;
-            --accent-glow: rgba(212, 168, 67, 0.25);
-            --text-primary: #f2f2f2;
-            --text-secondary: #a0a7b8;
-            --text-muted: #6b7280;
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --space-xs: 0.4rem;
+            --bg-primary: #f0f2f7;
+            --bg-surface: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-glass: rgba(255, 255, 255, 0.5);
+            --accent: #f5c842;
+            --accent-gradient: linear-gradient(135deg, #f5c842, #e6b422);
+            --accent-glow: rgba(245, 200, 66, 0.2);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #8a8aa0;
+            --border-subtle: rgba(0, 0, 0, 0.06);
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.10);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            --radius-full: 9999px;
+            --space-xs: 0.5rem;
             --space-sm: 0.8rem;
-            --space-md: 1.3rem;
-            --space-lg: 2rem;
-            --space-xl: 2.5rem;
+            --space-md: 1.4rem;
+            --space-lg: 2.4rem;
+            --space-xl: 3.5rem;
             --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -39,42 +46,70 @@
         }
 
         html {
-            font-size: 15px;
+            font-size: 16px;
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--primary);
-            background-image: 
-                radial-gradient(circle at 20% 10%, rgba(212, 168, 67, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 80% 90%, rgba(212, 168, 67, 0.03) 0%, transparent 50%);
+            font-family: var(--font-family);
+            background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--space-sm);
+            padding: var(--space-md);
             direction: rtl;
-            line-height: 1.7;
+            background-image: 
+                radial-gradient(ellipse at 20% 30%, rgba(245, 200, 66, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(245, 200, 66, 0.05) 0%, transparent 50%);
         }
 
         .container {
             width: 100%;
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: var(--space-xs);
         }
 
-        /* === کارت اصلی === */
-        .about-card {
-            background: var(--primary-surface);
+        /* ===== دکمه بازگشت ===== */
+        .back-nav {
+            margin-bottom: var(--space-md);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-smooth);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-soft);
             border: 1px solid var(--border-subtle);
+        }
+
+        .back-btn:hover {
+            color: var(--accent);
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .back-btn i {
+            margin-left: 6px;
+        }
+
+        /* ===== کارت اصلی ===== */
+        .about-card {
+            background: var(--bg-surface);
             border-radius: var(--radius-lg);
-            padding: var(--space-lg) var(--space-md);
+            padding: var(--space-xl) var(--space-lg);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-subtle);
             backdrop-filter: blur(10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -85,70 +120,91 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.7;
+            height: 4px;
+            background: var(--accent-gradient);
+            opacity: 0.8;
         }
 
-        /* === هدر با لوگو === */
+        .about-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 80%;
+            background: var(--accent-gradient);
+            opacity: 0.02;
+            border-radius: 50%;
+            transform: rotate(-20deg);
+            pointer-events: none;
+        }
+
+        /* ===== هدر ===== */
         .about-header {
             text-align: center;
             margin-bottom: var(--space-lg);
             padding-bottom: var(--space-md);
             border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+            z-index: 1;
         }
 
         .logo-wrapper {
             display: inline-block;
             background: #ffffff;
-            padding: 10px 16px;
+            padding: 12px 20px;
             border-radius: var(--radius-md);
             margin-bottom: var(--space-md);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            max-width: 90%;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-subtle);
+            transition: all var(--transition-smooth);
+            max-width: 95%;
+        }
+
+        .logo-wrapper:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
         }
 
         .logo-img {
             display: block;
-            max-height: 50px;
+            max-height: 64px;
             width: auto;
             max-width: 100%;
             object-fit: contain;
         }
 
         .about-header h1 {
-            font-size: clamp(1.6rem, 5vw, 2.4rem);
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
             color: var(--text-primary);
             margin-top: var(--space-sm);
-            word-break: keep-all;
-            overflow-wrap: break-word;
         }
 
         .about-header .tagline {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--accent);
-            font-weight: 500;
+            font-weight: 600;
             margin-top: var(--space-xs);
             letter-spacing: 0.02em;
-            overflow-wrap: break-word;
         }
 
-        /* === بخش‌های محتوا === */
+        /* ===== بخش‌های محتوا ===== */
         .bio-section {
             margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 1;
         }
 
         .bio-section h2 {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--accent);
             margin-bottom: var(--space-xs);
             display: flex;
             align-items: center;
             gap: var(--space-xs);
-            flex-wrap: wrap;
         }
 
         .bio-section h2 i {
@@ -159,49 +215,47 @@
 
         .bio-section p {
             color: var(--text-secondary);
-            font-weight: 300;
-            font-size: 0.9rem;
+            font-weight: 400;
+            font-size: 0.95rem;
             text-align: justify;
-            overflow-wrap: break-word;
-            word-break: break-word;
+            line-height: 1.8;
         }
 
-        /* === کارت‌های آمار === */
+        /* ===== کارت‌های آمار ===== */
         .stats-row {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--space-sm);
             margin: var(--space-md) 0;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-card {
-            background: var(--primary-light);
+            background: var(--bg-primary);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-md);
-            padding: var(--space-sm);
+            padding: var(--space-md) var(--space-sm);
             text-align: center;
             transition: all var(--transition-smooth);
-            min-width: 0;
         }
 
         .stat-card:hover {
             border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         .stat-card .stat-icon {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--accent);
             margin-bottom: 4px;
         }
 
         .stat-card .stat-number {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--text-primary);
-            overflow-wrap: break-word;
-            word-break: break-all;
         }
 
         .stat-card .stat-label {
@@ -210,7 +264,7 @@
             margin-top: 2px;
         }
 
-        /* === تگ‌های مهارت === */
+        /* ===== تگ‌های مهارت ===== */
         .skills-tags {
             display: flex;
             flex-wrap: wrap;
@@ -219,29 +273,110 @@
         }
 
         .skill-tag {
-            background: var(--primary-light);
+            background: var(--bg-primary);
             color: var(--text-secondary);
             border: 1px solid var(--border-subtle);
-            padding: 5px 12px;
+            padding: 5px 14px;
             border-radius: 50px;
             font-size: 0.78rem;
-            font-weight: 400;
+            font-weight: 500;
             transition: all var(--transition-smooth);
             cursor: default;
-            white-space: nowrap;
         }
 
         .skill-tag:hover {
-            background: var(--accent);
-            color: #0a0f1c;
+            background: var(--accent-gradient);
+            color: #1a1a2e;
             border-color: var(--accent);
-            font-weight: 600;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--accent-glow);
         }
 
-        /* === دکمه بازگشت === */
+        /* ===== نقل قول ===== */
+        .quote-text {
+            font-style: italic;
+            text-align: center;
+            color: var(--accent);
+            font-size: 1.05rem;
+            font-weight: 500;
+            padding: var(--space-sm);
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            border-right: 3px solid var(--accent);
+        }
+
+        /* ===== شماره تماس ===== */
+        .contact-section {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-subtle);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--bg-primary);
+            padding: 8px 20px 8px 24px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .contact-number {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            direction: ltr;
+            letter-spacing: 0.5px;
+        }
+
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-gradient);
+            color: #1a1a2e;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 10px 28px;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            transition: all var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .call-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 32px rgba(245, 200, 66, 0.35);
+        }
+
+        .call-btn i {
+            font-size: 1rem;
+        }
+
+        /* ===== لینک بازگشت به هاب ===== */
         .back-link-wrapper {
             text-align: center;
             margin-top: var(--space-lg);
+            position: relative;
+            z-index: 1;
         }
 
         .back-link {
@@ -250,26 +385,48 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
-            transition: color var(--transition-smooth);
+            transition: all var(--transition-smooth);
             padding: 8px 16px;
+            border-radius: var(--radius-full);
         }
 
         .back-link:hover {
             color: var(--accent);
+            background: var(--bg-primary);
         }
 
         .back-link i {
             margin-left: 6px;
         }
 
-        /* === ریسپانسیو برای موبایل‌های کوچک === */
-        @media (max-width: 480px) {
-            body {
-                padding: var(--space-xs);
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .container {
-                padding: 0;
+            .about-card {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .contact-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--space-sm);
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .call-btn {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: var(--space-sm);
             }
 
             .about-card {
@@ -277,20 +434,20 @@
                 border-radius: var(--radius-md);
             }
 
-            .logo-wrapper {
-                padding: 8px 12px;
+            .logo-img {
+                max-height: 48px;
             }
 
-            .logo-img {
-                max-height: 40px;
+            .logo-wrapper {
+                padding: 8px 14px;
             }
 
             .about-header h1 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
 
             .about-header .tagline {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
 
             .bio-section h2 {
@@ -298,8 +455,7 @@
             }
 
             .bio-section p {
-                font-size: 0.82rem;
-                text-align: right;
+                font-size: 0.85rem;
             }
 
             .stats-row {
@@ -316,40 +472,51 @@
             }
 
             .stat-card .stat-number {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
 
             .stat-card .stat-label {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .skill-tag {
                 font-size: 0.7rem;
                 padding: 4px 10px;
             }
-        }
 
-        /* === ریسپانسیو برای تبلت و لپ‌تاپ‌های کوچک === */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .about-card {
-                padding: var(--space-lg) var(--space-md);
+            .contact-number {
+                font-size: 0.9rem;
             }
 
-            .stats-row {
-                grid-template-columns: repeat(4, 1fr);
+            .call-btn {
+                font-size: 0.85rem;
+                padding: 8px 20px;
+            }
+
+            .quote-text {
+                font-size: 0.9rem;
+                padding: var(--space-xs);
             }
         }
 
-        /* === ریسپانسیو برای لپ‌تاپ و دسکتاپ === */
-        @media (min-width: 769px) {
+        @media (max-width: 360px) {
             .stats-row {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: 1fr 1fr;
+                gap: 4px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- ===== دکمه بازگشت ===== -->
+        <nav class="back-nav">
+            <a href="./index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> بازگشت به هاب
+            </a>
+        </nav>
+
+        <!-- ===== کارت اصلی ===== -->
         <div class="about-card">
             
             <header class="about-header">
@@ -365,6 +532,7 @@
                 <p class="tagline">بنیانگذار و مدیر کل Lumen Technologies Co.</p>
             </header>
 
+            <!-- ===== درباره من ===== -->
             <div class="bio-section">
                 <h2><i class="fas fa-user-circle"></i> درباره من</h2>
                 <p>
@@ -375,6 +543,7 @@
                 </p>
             </div>
 
+            <!-- ===== آمار ===== -->
             <div class="stats-row">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-building"></i></div>
@@ -398,6 +567,7 @@
                 </div>
             </div>
 
+            <!-- ===== فعالیت‌ها ===== -->
             <div class="bio-section">
                 <h2><i class="fas fa-briefcase"></i> فعالیت‌ها و مسئولیت‌ها</h2>
                 <p>
@@ -409,6 +579,7 @@
                 </p>
             </div>
 
+            <!-- ===== مهارت‌ها ===== -->
             <div class="bio-section">
                 <h2><i class="fas fa-code"></i> مهارت‌ها و تخصص‌ها</h2>
                 <div class="skills-tags">
@@ -424,13 +595,29 @@
                 </div>
             </div>
 
+            <!-- ===== نقل قول ===== -->
             <div class="bio-section">
                 <h2><i class="fas fa-quote-right"></i> باور من</h2>
-                <p style="font-style: italic; text-align: center; color: var(--accent); font-size: 1rem;">
+                <p class="quote-text">
                     «شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.»
                 </p>
             </div>
 
+            <!-- ===== شماره تماس ===== -->
+            <div class="contact-section">
+                <div class="contact-row">
+                    <div class="contact-info">
+                        <i class="fas fa-headset"></i>
+                        <span class="contact-number">۰۹۳۶۲۳۳۵۲۶۶</span>
+                    </div>
+                    <a href="tel:09362335266" class="call-btn">
+                        <i class="fas fa-phone"></i>
+                        تماس مستقیم
+                    </a>
+                </div>
+            </div>
+
+            <!-- ===== لینک بازگشت ===== -->
             <div class="back-link-wrapper">
                 <a href="https://lt-c.iddns.ir" class="back-link">
                     <i class="fas fa-arrow-right"></i> بازگشت به هاب LTC
@@ -443,6 +630,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
+            // ===== انیمیشن کارت‌های آمار =====
             const statCards = document.querySelectorAll('.stat-card');
             
             const observer = new IntersectionObserver((entries) => {
@@ -461,6 +649,7 @@
                 observer.observe(card);
             });
 
+            // ===== انیمیشن تگلاین =====
             const tagline = document.querySelector('.tagline');
             if (tagline) {
                 tagline.style.opacity = '0';
