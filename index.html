@@ -62,28 +62,35 @@
 
   .wrap{max-width:1080px; margin:0 auto; padding:0 clamp(1.25rem,4vw,3rem);}
 
-  /* ===== Sound toggle ===== */
-  .sound-toggle{
+  /* ===== Background music (minimal, unobtrusive) ===== */
+  .music-control{
     position:fixed;
     top:1.25rem;
     left:1.25rem;
     z-index:60;
-    width:44px; height:44px;
+    width:40px; height:40px;
     border-radius:50%;
-    background:var(--surface);
+    background:rgba(20,25,36,0.55);
     border:1px solid var(--line);
-    color:var(--text-1);
+    color:var(--text-2);
     display:flex; align-items:center; justify-content:center;
     cursor:pointer;
     transition:all .3s var(--ease);
     backdrop-filter: blur(6px);
+    font-size:.8rem;
   }
-  .sound-toggle:hover{ border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
-  .sound-toggle.on{ color:var(--gold); border-color:var(--gold-glow); box-shadow:0 0 0 4px var(--gold-soft);}
-  .sound-toggle .fa-volume-xmark{ display:block; }
-  .sound-toggle .fa-volume-high{ display:none; }
-  .sound-toggle.on .fa-volume-xmark{ display:none; }
-  .sound-toggle.on .fa-volume-high{ display:block; }
+  .music-control:hover{ border-color:var(--gold-glow); color:var(--gold); }
+  .music-control.playing{ color:var(--gold); }
+  .music-control .bars{ display:flex; align-items:flex-end; gap:2px; height:12px; }
+  .music-control .bars span{ width:2px; background:currentColor; border-radius:1px; height:4px; opacity:.5; }
+  .music-control.playing .bars span{ animation:bar 0.9s ease-in-out infinite; opacity:1; }
+  .music-control.playing .bars span:nth-child(2){ animation-delay:.15s; }
+  .music-control.playing .bars span:nth-child(3){ animation-delay:.3s; }
+  @keyframes bar{ 0%,100%{ height:4px;} 50%{ height:12px;} }
+  .music-control .fa-music{ display:block; }
+  .music-control.playing .fa-music{ display:none; }
+  .music-control.playing .bars{ display:flex; }
+  .music-control:not(.playing) .bars{ display:none; }
 
   /* ===== Top nav ===== */
   .topnav{
@@ -402,9 +409,10 @@
 </head>
 <body>
 
-  <button class="sound-toggle" id="soundToggle" aria-pressed="false" aria-label="فعال‌سازی صدای رابط کاربری">
-    <i class="fa-solid fa-volume-xmark"></i>
-    <i class="fa-solid fa-volume-high"></i>
+  <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+  <button class="music-control" id="musicControl" aria-pressed="false" aria-label="پخش/توقف موسیقی پس‌زمینه">
+    <i class="fa-solid fa-music"></i>
+    <span class="bars"><span></span><span></span><span></span></span>
   </button>
 
   <nav class="topnav">
@@ -425,10 +433,10 @@
       <h1>محمد حسین <em>مهدوی</em></h1>
       <p class="role">بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.</p>
       <div class="hero-cta">
-        <a href="tel:09362335266" class="btn btn-primary" data-sfx="primary">
+        <a href="tel:09362335266" class="btn btn-primary">
           <i class="fa-solid fa-phone"></i> تماس مستقیم
         </a>
-        <a href="#about" class="btn btn-ghost" data-sfx="hover">
+        <a href="#about" class="btn btn-ghost">
           <i class="fa-solid fa-arrow-down"></i> بیشتر بدانید
         </a>
       </div>
@@ -550,8 +558,8 @@
         <div class="contact-actions">
           <div class="phone-display"><i class="fa-solid fa-headset"></i> ۰۹۳۶۲۳۳۵۲۶۶</div>
           <div style="display:flex; gap:.6rem;">
-            <a href="tel:09362335266" class="btn btn-primary" data-sfx="primary"><i class="fa-solid fa-phone"></i> تماس مستقیم</a>
-            <button class="btn btn-ghost" id="copyBtn" data-sfx="hover"><i class="fa-regular fa-copy"></i> کپی شماره</button>
+            <a href="tel:09362335266" class="btn btn-primary"><i class="fa-solid fa-phone"></i> تماس مستقیم</a>
+            <button class="btn btn-ghost" id="copyBtn"><i class="fa-regular fa-copy"></i> کپی شماره</button>
           </div>
           <div class="copy-note" id="copyNote">شماره کپی شد</div>
         </div>
@@ -634,48 +642,44 @@
   }
   draw();
 
-  /* ===== Sound design (Web Audio, synthesized, opt-in) ===== */
-  let audioCtx = null;
-  let soundOn = false;
-  const toggle = document.getElementById('soundToggle');
+  /* ===== Background music: soft, looping, autoplay with graceful fallback ===== */
+  const music = document.getElementById('bgMusic');
+  const musicControl = document.getElementById('musicControl');
+  const TARGET_VOLUME = 0.28;
+  music.volume = TARGET_VOLUME;
 
-  function ensureCtx(){
-    if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
-    if(audioCtx.state === 'suspended'){ audioCtx.resume(); }
+  function setPlayingUI(isPlaying){
+    musicControl.classList.toggle('playing', isPlaying);
+    musicControl.setAttribute('aria-pressed', String(isPlaying));
   }
 
-  function chime(freq, duration, gainPeak, type){
-    if(!soundOn || !audioCtx) return;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type || 'sine';
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(0, audioCtx.currentTime);
-    gain.gain.linearRampToValueAtTime(gainPeak, audioCtx.currentTime + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime + duration + 0.05);
+  function tryAutoplay(){
+    const p = music.play();
+    if(p && p.catch){
+      p.then(()=> setPlayingUI(true)).catch(()=>{
+        // Autoplay blocked by the browser — start on the first user interaction instead.
+        setPlayingUI(false);
+        const startOnce = ()=>{
+          music.play().then(()=> setPlayingUI(true)).catch(()=>{});
+          window.removeEventListener('pointerdown', startOnce);
+          window.removeEventListener('keydown', startOnce);
+          window.removeEventListener('scroll', startOnce);
+        };
+        window.addEventListener('pointerdown', startOnce, { once:true });
+        window.addEventListener('keydown', startOnce, { once:true });
+        window.addEventListener('scroll', startOnce, { once:true, passive:true });
+      });
+    }
   }
+  tryAutoplay();
 
-  toggle.addEventListener('click', ()=>{
-    soundOn = !soundOn;
-    toggle.classList.toggle('on', soundOn);
-    toggle.setAttribute('aria-pressed', String(soundOn));
-    if(soundOn){ ensureCtx(); chime(880, 0.35, 0.05, 'sine'); }
-  });
-
-  document.querySelectorAll('[data-sfx]').forEach(el=>{
-    el.addEventListener('mouseenter', ()=>{
-      if(!soundOn) return;
-      ensureCtx();
-      chime(el.dataset.sfx === 'primary' ? 660 : 520, 0.22, 0.035, 'sine');
-    });
-    el.addEventListener('click', ()=>{
-      if(!soundOn) return;
-      ensureCtx();
-      chime(el.dataset.sfx === 'primary' ? 990 : 780, 0.3, 0.045, 'triangle');
-    });
+  musicControl.addEventListener('click', ()=>{
+    if(music.paused){
+      music.play().then(()=> setPlayingUI(true)).catch(()=>{});
+    } else {
+      music.pause();
+      setPlayingUI(false);
+    }
   });
 
   /* ===== Copy phone number ===== */
