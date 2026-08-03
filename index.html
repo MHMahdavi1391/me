@@ -62,35 +62,7 @@
 
   .wrap{max-width:1080px; margin:0 auto; padding:0 clamp(1.25rem,4vw,3rem);}
 
-  /* ===== Background music (minimal, unobtrusive) ===== */
-  .music-control{
-    position:fixed;
-    top:1.25rem;
-    left:1.25rem;
-    z-index:60;
-    width:40px; height:40px;
-    border-radius:50%;
-    background:rgba(20,25,36,0.55);
-    border:1px solid var(--line);
-    color:var(--text-2);
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    transition:all .3s var(--ease);
-    backdrop-filter: blur(6px);
-    font-size:.8rem;
-  }
-  .music-control:hover{ border-color:var(--gold-glow); color:var(--gold); }
-  .music-control.playing{ color:var(--gold); }
-  .music-control .bars{ display:flex; align-items:flex-end; gap:2px; height:12px; }
-  .music-control .bars span{ width:2px; background:currentColor; border-radius:1px; height:4px; opacity:.5; }
-  .music-control.playing .bars span{ animation:bar 0.9s ease-in-out infinite; opacity:1; }
-  .music-control.playing .bars span:nth-child(2){ animation-delay:.15s; }
-  .music-control.playing .bars span:nth-child(3){ animation-delay:.3s; }
-  @keyframes bar{ 0%,100%{ height:4px;} 50%{ height:12px;} }
-  .music-control .fa-music{ display:block; }
-  .music-control.playing .fa-music{ display:none; }
-  .music-control.playing .bars{ display:flex; }
-  .music-control:not(.playing) .bars{ display:none; }
+
 
   /* ===== Top nav ===== */
   .topnav{
@@ -410,10 +382,6 @@
 <body>
 
   <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
-  <button class="music-control" id="musicControl" aria-pressed="false" aria-label="پخش/توقف موسیقی پس‌زمینه">
-    <i class="fa-solid fa-music"></i>
-    <span class="bars"><span></span><span></span><span></span></span>
-  </button>
 
   <nav class="topnav">
     <span></span>
@@ -642,45 +610,66 @@
   }
   draw();
 
-  /* ===== Background music: soft, looping, autoplay with graceful fallback ===== */
+  /* ===== Background music: soft, looping, autoplay with graceful fallback =====
+     Diagnostics: open the browser console (F12) on the live page — this logs
+     exactly why playback did or didn't start (missing file, blocked autoplay, etc). */
   const music = document.getElementById('bgMusic');
-  const musicControl = document.getElementById('musicControl');
   const TARGET_VOLUME = 0.28;
-  music.volume = TARGET_VOLUME;
+  let fadeTimer = null;
 
-  function setPlayingUI(isPlaying){
-    musicControl.classList.toggle('playing', isPlaying);
-    musicControl.setAttribute('aria-pressed', String(isPlaying));
+  music.addEventListener('error', ()=>{
+    const code = music.error ? music.error.code : 'unknown';
+    // code 4 (MEDIA_ELEMENT_ERROR / SRC_NOT_SUPPORTED) almost always means
+    // music.mp3 is missing from the site root or the filename doesn't match.
+    console.error('[bg-music] failed to load music.mp3 — error code:', code,
+      '— check that music.mp3 sits next to index.html on the server.');
+  });
+  music.addEventListener('playing', ()=> console.log('[bg-music] playing'));
+
+  function fadeIn(){
+    clearInterval(fadeTimer);
+    music.muted = false;
+    music.volume = 0;
+    let v = 0;
+    fadeTimer = setInterval(()=>{
+      v = Math.min(TARGET_VOLUME, v + 0.02);
+      music.volume = v;
+      if(v >= TARGET_VOLUME) clearInterval(fadeTimer);
+    }, 60);
+  }
+
+  function startOnInteraction(){
+    music.muted = false;
+    music.play().then(fadeIn).catch(err=> console.warn('[bg-music] play on interaction failed:', err));
   }
 
   function tryAutoplay(){
+    // Most browsers allow *muted* autoplay unconditionally. Start muted, then
+    // unmute and fade the volume in — this succeeds in far more browsers than
+    // requesting unmuted autoplay directly.
+    music.muted = true;
+    music.volume = TARGET_VOLUME;
     const p = music.play();
-    if(p && p.catch){
-      p.then(()=> setPlayingUI(true)).catch(()=>{
-        // Autoplay blocked by the browser — start on the first user interaction instead.
-        setPlayingUI(false);
-        const startOnce = ()=>{
-          music.play().then(()=> setPlayingUI(true)).catch(()=>{});
-          window.removeEventListener('pointerdown', startOnce);
-          window.removeEventListener('keydown', startOnce);
-          window.removeEventListener('scroll', startOnce);
-        };
-        window.addEventListener('pointerdown', startOnce, { once:true });
-        window.addEventListener('keydown', startOnce, { once:true });
-        window.addEventListener('scroll', startOnce, { once:true, passive:true });
+    if(p && p.then){
+      p.then(()=>{
+        console.log('[bg-music] autoplay accepted, unmuting');
+        fadeIn();
+      }).catch(err=>{
+        console.warn('[bg-music] autoplay blocked by browser, will start on first interaction:', err);
+        window.addEventListener('pointerdown', startOnInteraction, { once:true });
+        window.addEventListener('keydown', startOnInteraction, { once:true });
+        window.addEventListener('scroll', startOnInteraction, { once:true, passive:true });
       });
     }
   }
-  tryAutoplay();
 
-  musicControl.addEventListener('click', ()=>{
-    if(music.paused){
-      music.play().then(()=> setPlayingUI(true)).catch(()=>{});
-    } else {
-      music.pause();
-      setPlayingUI(false);
-    }
-  });
+  if(music.readyState >= 2){
+    tryAutoplay();
+  } else {
+    music.addEventListener('canplaythrough', tryAutoplay, { once:true });
+    // Safety net in case canplaythrough never fires (e.g. slow/missing source)
+    setTimeout(()=>{ if(music.paused) tryAutoplay(); }, 1500);
+  }
 
   /* ===== Copy phone number ===== */
   const copyBtn = document.getElementById('copyBtn');
