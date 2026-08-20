@@ -1,1 +1,153 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Hosein Mahdavi | Lumen Technologies Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg-0:#0a0d13;--surface:#141924;--surface-hi:#1b2230;--line:rgba(233,238,248,0.08);--line-hi:rgba(233,238,248,0.16);--gold:#f0b93d;--gold-soft:rgba(240,185,61,0.16);--gold-glow:rgba(240,185,61,0.35);--cyan:#5fe0c8;--cyan-soft:rgba(95,224,200,0.14);--text-0:#eef1f7;--text-1:#aab2c4;--text-2:#6c7488;--font-display:'Vazirmatn',sans-serif;--font-mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.22,1,.36,1);--radius-m:20px;--radius-l:32px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--font-display);background:radial-gradient(ellipse 900px 600px at 85% -5%,rgba(240,185,61,0.07),transparent 60%),radial-gradient(ellipse 700px 500px at -5% 40%,rgba(95,224,200,0.05),transparent 60%),var(--bg-0);color:var(--text-0);direction:rtl;overflow-x:hidden;-webkit-font-smoothing:antialiased}a{color:inherit}.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+#langToggle{position:fixed;top:16px;left:16px;z-index:80;display:flex;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:rgba(20,25,36,0.85);backdrop-filter:blur(10px)}
+#langToggle button{border:none;background:transparent;color:rgba(255,255,255,0.5);font-size:0.72rem;font-weight:700;padding:8px 12px;cursor:pointer;font-family:inherit}
+#langToggle button.active{background:rgba(240,185,61,0.2);color:#f0b93d}
+html[dir=ltr] #langToggle{left:auto;right:16px}
+.topnav{position:fixed;top:0;right:0;left:0;z-index:50;padding:1.1rem clamp(1.25rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(10,13,19,0.85),transparent);pointer-events:none}
+.topnav .hub-link{pointer-events:auto;display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:500;color:var(--text-1);text-decoration:none;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(20,25,36,0.6);backdrop-filter:blur(8px)}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:5rem;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.75}.hero-inner{position:relative;z-index:2;width:100%}
+.logo-badge{display:inline-flex;align-items:center;gap:12px;background:rgba(20,25,36,0.65);border:1px solid var(--line);padding:8px 10px 8px 18px;border-radius:999px;backdrop-filter:blur(8px);margin-bottom:2rem}
+.logo-badge img{height:30px;width:auto;border-radius:8px;background:#fff;padding:2px 6px}
+.logo-badge span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--text-1)}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:800;line-height:1.1;max-width:14ch}
+.hero h1 em{font-style:normal;background:linear-gradient(95deg,var(--gold),#ffd98a 55%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{margin-top:1.1rem;font-size:clamp(1rem,2vw,1.25rem);color:var(--text-1);font-weight:500;max-width:34ch}
+.hero .role strong{color:var(--cyan);font-weight:600}
+.hero-cta{margin-top:2.4rem;display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:600;font-size:.92rem;padding:13px 26px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#d99f2b);color:#191307;box-shadow:0 8px 30px -8px var(--gold-glow)}
+.btn-ghost{background:rgba(255,255,255,0.02);color:var(--text-0);border-color:var(--line-hi)}
+section{position:relative;padding:clamp(4rem,9vw,7.5rem) 0}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--cyan);display:flex;align-items:center;gap:10px;margin-bottom:1rem;text-transform:uppercase}
+.section-title{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;max-width:18ch;margin-bottom:1.4rem}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem)}
+.about-text p{color:var(--text-1);font-size:1.02rem;line-height:2;text-align:justify}.about-text p+p{margin-top:1.1rem}
+.stat-list{border-top:1px solid var(--line)}
+.stat-row{display:flex;align-items:baseline;justify-content:space-between;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.stat-row .k{font-family:var(--font-mono);font-size:.78rem;color:var(--text-2)}.stat-row .v{font-weight:700}.stat-row .v.gold{color:var(--gold)}.stat-row .v.cyan{color:var(--cyan)}
+.venture-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.v-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:1.9rem 1.7rem}
+.v-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--gold-soft);color:var(--gold);font-size:1.15rem;margin-bottom:1.1rem}
+.v-card h3{font-size:1.08rem;font-weight:700;margin-bottom:.55rem}.v-card p{font-size:.9rem;color:var(--text-1);line-height:1.9}
+.v-tag{display:inline-block;margin-top:1rem;font-family:var(--font-mono);font-size:.68rem;color:var(--text-2);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
+.skill-groups{display:flex;flex-direction:column;gap:1.6rem}.g-label{font-family:var(--font-mono);font-size:.72rem;color:var(--text-2);margin-bottom:.8rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:.55rem}.tag{font-size:.86rem;font-weight:500;color:var(--text-1);padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.quote-section{text-align:center}blockquote{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;max-width:22ch;margin:0 auto;line-height:1.7}blockquote span{color:var(--gold)}.quote-attr{margin-top:1.4rem;font-family:var(--font-mono);font-size:.78rem;color:var(--text-2)}
+.contact-card{background:linear-gradient(150deg,var(--surface),#161c28);border:1px solid var(--line-hi);border-radius:var(--radius-l);padding:clamp(2.2rem,5vw,3.6rem);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.contact-card h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:.6rem}.contact-card p{color:var(--text-1);font-size:.95rem;max-width:32ch}
+.contact-actions{display:flex;flex-direction:column;align-items:flex-end;gap:.9rem}.phone-display{font-family:var(--font-mono);direction:ltr;font-size:1.3rem;font-weight:600;display:flex;align-items:center;gap:10px}.phone-display i{color:var(--gold)}
+.copy-note{font-size:.72rem;color:var(--cyan);height:14px;opacity:0;font-family:var(--font-mono)}.copy-note.show{opacity:1}
+footer{text-align:center;padding:2.5rem 0 3rem;color:var(--text-2);font-size:.78rem}footer a{color:var(--text-1);text-decoration:none}
+@media(max-width:860px){.about-grid,.venture-grid{grid-template-columns:1fr}.contact-card{flex-direction:column;align-items:flex-start}.contact-actions{align-items:flex-start;width:100%}}
+</style>
+</head>
+<body>
+<div id="langToggle">
+  <button type="button" data-lang="fa" class="active">FA</button>
+  <button type="button" data-lang="en">EN</button>
+</div>
+<nav class="topnav"><span></span><a href="https://lt-c.iddns.ir/" class="hub-link" data-i18n="hub">بازگشت به هاب LTC</a></nav>
+<header class="hero" id="hero">
+  <div class="wrap hero-inner">
+    <div class="logo-badge"><img src="logo.jpg" alt="LTC" onerror="this.style.display='none'"><span>LUMEN TECHNOLOGIES CO.</span></div>
+    <h1 data-i18n="name">محمد حسین <em>مهدوی</em></h1>
+    <p class="role" data-i18n="role">بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.</p>
+    <div class="hero-cta">
+      <a href="tel:09362335266" class="btn btn-primary" data-i18n="call">تماس مستقیم</a>
+      <a href="#about" class="btn btn-ghost" data-i18n="more">بیشتر بدانید</a>
+    </div>
+  </div>
+</header>
+<section id="about"><div class="wrap about-grid">
+  <div><p class="eyebrow" data-i18n="about_eyebrow">درباره من</p>
+  <h2 class="section-title" data-i18n="about_title">از علاقه به فناوری تا مدیریت یک مجموعه‌ی چندلایه</h2>
+  <div class="about-text">
+    <p data-i18n="about_p1">محمد حسین مهدوی، بنیان‌گذار و مدیرکل Lumen Technologies Co. (LTC) است؛ مجموعه‌ای فناورانه، امنیتی و رسانه‌ای که با هدف ارائه خدمات دیجیتال، تولید محتوای حرفه‌ای و حمایت از هنرمندان مستقل شکل گرفته است.</p>
+    <p data-i18n="about_p2">او از سنین نوجوانی با برنامه‌نویسی، امنیت سایبری و مدیریت پروژه‌های دیجیتال آشنا شد و همین دلبستگی زودهنگام، مسیر او را به‌سمت ساختن مجموعه‌ای رسانده که امروز چند حوزه‌ی متفاوت را زیر یک سقف مدیریت می‌کند.</p>
+  </div></div>
+  <div class="stat-list">
+    <div class="stat-row"><span class="k" data-i18n="stat_company">شرکت اصلی</span><span class="v gold">LTC</span></div>
+    <div class="stat-row"><span class="k" data-i18n="stat_label">لیبل موسیقی</span><span class="v cyan">YELO</span></div>
+    <div class="stat-row"><span class="k" data-i18n="stat_portal">پورتال رسمی</span><span class="v">lt-c.iddns.ir</span></div>
+    <div class="stat-row"><span class="k" data-i18n="stat_priority">اولویت مجموعه</span><span class="v gold" data-i18n="stat_priority_v">امنیت و شفافیت</span></div>
+  </div>
+</div></section>
+<section id="ventures"><div class="wrap">
+  <p class="eyebrow" data-i18n="ventures_eyebrow">فعالیت‌ها</p>
+  <h2 class="section-title" data-i18n="ventures_title">مجموعه‌ای از پروژه‌های تحت مدیریت</h2>
+  <div class="venture-grid" style="margin-top:2.2rem">
+    <div class="v-card"><div class="v-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Lumen Technologies Co.</h3><p data-i18n="v1">هسته‌ی اصلی مجموعه؛ ارائه‌ی خدمات فناورانه و امنیتی با تمرکز بر اعتماد و شفافیت در فضای دیجیتال.</p><span class="v-tag" data-i18n="v1t">فناوری · امنیت</span></div>
+    <div class="v-card"><div class="v-icon"><i class="fa-solid fa-music"></i></div><h3>YELO</h3><p data-i18n="v2">لیبل موسیقی مجموعه، با هدف حمایت از هنرمندان مستقل و نشر آثار موسیقایی باکیفیت.</p><span class="v-tag" data-i18n="v2t">نشر موسیقی</span></div>
+    <div class="v-card"><div class="v-icon"><i class="fa-solid fa-mosque"></i></div><h3 data-i18n="v3h">مجتمع فرهنگی‌آموزشی امام هادی (ع)</h3><p data-i18n="v3">مدیریت تولید محتوا و رسانه‌ی این مجموعه‌ی فرهنگی، از تولید تا انتشار.</p><span class="v-tag" data-i18n="v3t">رسانه · محتوا</span></div>
+    <div class="v-card"><div class="v-icon"><i class="fa-solid fa-layer-group"></i></div><h3 data-i18n="v4h">پلتفرم خدمات دیجیتال</h3><p data-i18n="v4">پلتفرمی تخصصی برای سفارش ادیت، طراحی پاورپوینت حرفه‌ای و سایر خدمات محتوایی.</p><span class="v-tag" data-i18n="v4t">خدمات دیجیتال</span></div>
+  </div>
+</div></section>
+<section id="skills"><div class="wrap">
+  <p class="eyebrow" data-i18n="skills_eyebrow">مهارت‌ها</p>
+  <h2 class="section-title" data-i18n="skills_title">تخصص‌هایی که این مجموعه را می‌سازند</h2>
+  <div class="skill-groups" style="margin-top:2.2rem">
+    <div><div class="g-label" data-i18n="sg1">فنی و امنیتی</div><div class="tag-row"><span class="tag" data-i18n="t1">امنیت سایبری</span><span class="tag" data-i18n="t2">برنامه‌نویسی</span><span class="tag" data-i18n="t3">طراحی وب</span><span class="tag" data-i18n="t4">مشاوره فناوری</span></div></div>
+    <div><div class="g-label" data-i18n="sg2">رسانه و محتوا</div><div class="tag-row"><span class="tag" data-i18n="t5">تولید محتوا</span><span class="tag" data-i18n="t6">نشر موسیقی</span><span class="tag" data-i18n="t7">طراحی استراتژی</span></div></div>
+    <div><div class="g-label" data-i18n="sg3">مدیریت</div><div class="tag-row"><span class="tag" data-i18n="t8">مدیریت پروژه</span><span class="tag" data-i18n="t9">مدیریت تیم</span></div></div>
+  </div>
+</div></section>
+<section class="quote-section"><div class="wrap">
+  <blockquote data-i18n="quote">شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.</blockquote>
+  <div class="quote-attr">— Mohammad Hosein Mahdavi</div>
+</div></section>
+<section id="contact"><div class="wrap"><div class="contact-card">
+  <div><h2 data-i18n="contact_title">گفت‌وگو را شروع کنیم</h2><p data-i18n="contact_text">برای همکاری، مشاوره یا هر سوالی درباره‌ی پروژه‌های مجموعه، مستقیم تماس بگیرید.</p></div>
+  <div class="contact-actions">
+    <div class="phone-display"><i class="fa-solid fa-headset"></i> 09362335266</div>
+    <div style="display:flex;gap:.6rem">
+      <a href="tel:09362335266" class="btn btn-primary" data-i18n="call2">تماس مستقیم</a>
+      <button class="btn btn-ghost" id="copyBtn" data-i18n="copy">کپی شماره</button>
+    </div>
+    <div class="copy-note" id="copyNote" data-i18n="copied">شماره کپی شد</div>
+  </div>
+</div></div></section>
+<footer><a href="https://lt-c.iddns.ir" data-i18n="hub2">بازگشت به هاب LTC</a> · Lumen Technologies Co.</footer>
+<script>
+(function(){
+  var I18N={
+    fa:{hub:'بازگشت به هاب LTC',name:'محمد حسین <em>مهدوی</em>',role:'بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.',call:'تماس مستقیم',more:'بیشتر بدانید',about_eyebrow:'درباره من',about_title:'از علاقه به فناوری تا مدیریت یک مجموعه‌ی چندلایه',about_p1:'محمد حسین مهدوی، بنیان‌گذار و مدیرکل Lumen Technologies Co. (LTC) است؛ مجموعه‌ای فناورانه، امنیتی و رسانه‌ای که با هدف ارائه خدمات دیجیتال، تولید محتوای حرفه‌ای و حمایت از هنرمندان مستقل شکل گرفته است.',about_p2:'او از سنین نوجوانی با برنامه‌نویسی، امنیت سایبری و مدیریت پروژه‌های دیجیتال آشنا شد و همین دلبستگی زودهنگام، مسیر او را به‌سمت ساختن مجموعه‌ای رسانده که امروز چند حوزه‌ی متفاوت را زیر یک سقف مدیریت می‌کند.',stat_company:'شرکت اصلی',stat_label:'لیبل موسیقی',stat_portal:'پورتال رسمی',stat_priority:'اولویت مجموعه',stat_priority_v:'امنیت و شفافیت',ventures_eyebrow:'فعالیت‌ها',ventures_title:'مجموعه‌ای از پروژه‌های تحت مدیریت',v1:'هسته‌ی اصلی مجموعه؛ ارائه‌ی خدمات فناورانه و امنیتی با تمرکز بر اعتماد و شفافیت در فضای دیجیتال.',v1t:'فناوری · امنیت',v2:'لیبل موسیقی مجموعه، با هدف حمایت از هنرمندان مستقل و نشر آثار موسیقایی باکیفیت.',v2t:'نشر موسیقی',v3h:'مجتمع فرهنگی‌آموزشی امام هادی (ع)',v3:'مدیریت تولید محتوا و رسانه‌ی این مجموعه‌ی فرهنگی، از تولید تا انتشار.',v3t:'رسانه · محتوا',v4h:'پلتفرم خدمات دیجیتال',v4:'پلتفرمی تخصصی برای سفارش ادیت، طراحی پاورپوینت حرفه‌ای و سایر خدمات محتوایی.',v4t:'خدمات دیجیتال',skills_eyebrow:'مهارت‌ها',skills_title:'تخصص‌هایی که این مجموعه را می‌سازند',sg1:'فنی و امنیتی',t1:'امنیت سایبری',t2:'برنامه‌نویسی',t3:'طراحی وب',t4:'مشاوره فناوری',sg2:'رسانه و محتوا',t5:'تولید محتوا',t6:'نشر موسیقی',t7:'طراحی استراتژی',sg3:'مدیریت',t8:'مدیریت پروژه',t9:'مدیریت تیم',quote:'شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.',contact_title:'گفت‌وگو را شروع کنیم',contact_text:'برای همکاری، مشاوره یا هر سوالی درباره‌ی پروژه‌های مجموعه، مستقیم تماس بگیرید.',call2:'تماس مستقیم',copy:'کپی شماره',copied:'شماره کپی شد',hub2:'بازگشت به هاب LTC'},
+    en:{hub:'Back to LTC Hub',name:'Mohammad Hosein <em>Mahdavi</em>',role:'Founder & CEO of <strong>LTC</strong> — where technology, security, and media form one narrative.',call:'Call now',more:'Learn more',about_eyebrow:'About me',about_title:'From a passion for technology to leading a multi-layered organization',about_p1:'Mohammad Hosein Mahdavi is the founder and CEO of Lumen Technologies Co. (LTC); a technology, security, and media group built to deliver digital services, professional content, and support for independent artists.',about_p2:'From a young age he explored programming, cybersecurity, and digital project management — a path that led to building an organization that now spans several domains under one roof.',stat_company:'Core company',stat_label:'Music label',stat_portal:'Official portal',stat_priority:'Company priority',stat_priority_v:'Security & transparency',ventures_eyebrow:'Ventures',ventures_title:'Projects under management',v1:'The core of the group — technology and security services focused on trust and transparency.',v1t:'Tech · Security',v2:'The group music label, supporting independent artists and publishing quality releases.',v2t:'Music publishing',v3h:'Imam Hadi Cultural-Educational Complex',v3:'Managing content production and media for this cultural organization, from creation to publishing.',v3t:'Media · Content',v4h:'Digital services platform',v4:'A specialized platform for editing, professional PowerPoint design, and other content services.',v4t:'Digital services',skills_eyebrow:'Skills',skills_title:'Expertise that builds this organization',sg1:'Technical & security',t1:'Cybersecurity',t2:'Programming',t3:'Web design',t4:'Tech consulting',sg2:'Media & content',t5:'Content production',t6:'Music publishing',t7:'Strategy design',sg3:'Management',t8:'Project management',t9:'Team management',quote:'Transparency, security, and professional ethics in the digital space are the foundations of trust and progress.',contact_title:'Let\'s start a conversation',contact_text:'For collaboration, consulting, or any question about the group\'s projects, reach out directly.',call2:'Call now',copy:'Copy number',copied:'Number copied',hub2:'Back to LTC Hub'}
+  };
+  var lang=localStorage.getItem('ltc_lang')||'fa';
+  function apply(){
+    var d=I18N[lang]||I18N.fa;
+    document.documentElement.lang=lang;
+    document.documentElement.dir=lang==='fa'?'rtl':'ltr';
+    document.body.style.direction=lang==='fa'?'rtl':'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(d[k]) el.innerHTML=d[k];
+    });
+    document.querySelectorAll('#langToggle button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang)});
+  }
+  document.querySelectorAll('#langToggle button').forEach(function(btn){
+    btn.addEventListener('click',function(){lang=btn.getAttribute('data-lang');localStorage.setItem('ltc_lang',lang);apply();});
+  });
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    navigator.clipboard.writeText('09362335266').then(function(){
+      var n=document.getElementById('copyNote');n.classList.add('show');setTimeout(function(){n.classList.remove('show')},1800);
+    });
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
