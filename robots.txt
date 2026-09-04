@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mhmahdavi1391.github.io/me/sitemap.xml
