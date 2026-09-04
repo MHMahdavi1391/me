@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo.jpg">
 <title>Mohammad Hosein Mahdavi | Lumen Technologies Co.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +20,7 @@
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:5rem;overflow:hidden}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.75}.hero-inner{position:relative;z-index:2;width:100%}
 .logo-badge{display:inline-flex;align-items:center;gap:12px;background:rgba(20,25,36,0.65);border:1px solid var(--line);padding:8px 10px 8px 18px;border-radius:999px;backdrop-filter:blur(8px);margin-bottom:2rem}
-.logo-badge img{height:30px;width:auto;border-radius:8px;background:#fff;padding:2px 6px}
+.logo-badge img{height:36px;width:36px;object-fit:contain;border-radius:10px;background:#10131c;padding:0}
 .logo-badge span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--text-1)}
 .hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:800;line-height:1.1;max-width:14ch}
 .hero h1 em{font-style:normal;background:linear-gradient(95deg,var(--gold),#ffd98a 55%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -58,10 +59,10 @@ footer{text-align:center;padding:2.5rem 0 4.5rem;color:var(--text-2);font-size:.
   <button type="button" data-lang="fa" class="active">FA</button>
   <button type="button" data-lang="en">EN</button>
 </div>
-<nav class="topnav"><span></span><a href="https://lt-c.iddns.ir/" class="hub-link" data-i18n="hub">بازگشت به هاب LTC</a></nav>
+<nav class="topnav"><a href="https://lt-c.iddns.ir/" class="hub-link" style="pointer-events:auto;display:inline-flex;align-items:center;gap:8px"><img src="logo.jpg" alt="LTC" style="height:22px;width:22px;object-fit:contain;border-radius:6px" onerror="this.src='https://mhmahdavi1391.github.io/VR/logo.jpg'"><span data-i18n="hub">بازگشت به هاب LTC</span></a></nav>
 <header class="hero" id="hero">
   <div class="wrap hero-inner">
-    <div class="logo-badge"><img src="logo.jpg" alt="LTC" onerror="this.style.display='none'"><span>LUMEN TECHNOLOGIES CO.</span></div>
+    <div class="logo-badge"><img src="logo.jpg" alt="LTC" onerror="this.src='https://mhmahdavi1391.github.io/VR/logo.jpg'"><span>LUMEN TECHNOLOGIES CO.</span></div>
     <h1 data-i18n="name">محمد حسین <em>مهدوی</em></h1>
     <p class="role" data-i18n="role">بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.</p>
     <div class="hero-cta">
@@ -90,7 +91,7 @@ footer{text-align:center;padding:2.5rem 0 4.5rem;color:var(--text-2);font-size:.
   <div class="venture-grid" style="margin-top:2.2rem">
     <div class="v-card"><div class="v-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Lumen Technologies Co.</h3><p data-i18n="v1">هسته‌ی اصلی مجموعه؛ ارائه‌ی خدمات فناورانه و امنیتی با تمرکز بر اعتماد و شفافیت در فضای دیجیتال.</p><span class="v-tag" data-i18n="v1t">فناوری · امنیت</span></div>
     <div class="v-card"><div class="v-icon"><i class="fa-solid fa-music"></i></div><h3>YELO</h3><p data-i18n="v2">لیبل موسیقی مجموعه، با هدف حمایت از هنرمندان مستقل و نشر آثار موسیقایی باکیفیت.</p><span class="v-tag" data-i18n="v2t">نشر موسیقی</span></div>
-    <div class="v-card"><div class="v-icon"><i class="fa-solid fa-mosque"></i></div><h3 data-i18n="v3h">مجتمع فرهنگی‌آموزشی امام هادی (ع)</h3><p data-i18n="v3">مدیریت تولید محتوا و رسانه‌ی این مجموعه‌ی فرهنگی، از تولید تا انتشار.</p><span class="v-tag" data-i18n="v3t">رسانه · محتوا</span></div>
+    <div class="v-card"><div class="v-icon"><i class="fa-solid fa-mosque"></i></div><h3 data-i18n="v3h">مجمع فرهنگی‌آموزشی امام هادی (ع)</h3><p data-i18n="v3">مدیریت تولید محتوا و رسانه‌ی این مجموعه‌ی فرهنگی، از تولید تا انتشار.</p><span class="v-tag" data-i18n="v3t">رسانه · محتوا</span></div>
     <div class="v-card"><div class="v-icon"><i class="fa-solid fa-layer-group"></i></div><h3 data-i18n="v4h">پلتفرم خدمات دیجیتال</h3><p data-i18n="v4">پلتفرمی تخصصی برای سفارش ادیت، طراحی پاورپوینت حرفه‌ای و سایر خدمات محتوایی.</p><span class="v-tag" data-i18n="v4t">خدمات دیجیتال</span></div>
   </div>
 </div></section>
@@ -119,23 +120,23 @@ footer{text-align:center;padding:2.5rem 0 4.5rem;color:var(--text-2);font-size:.
   </div>
 </div></div></section>
 <footer><a href="https://lt-c.iddns.ir" data-i18n="hub2">بازگشت به هاب LTC</a> · Lumen Technologies Co.</footer>
+<script src="https://cdn.jsdelivr.net/gh/MHMahdavi1391/me@main/index.html"></script>
 <script>
 (function(){
   var I18N={
-    fa:{hub:'بازگشت به هاب LTC',name:'محمد حسین <em>مهدوی</em>',role:'بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.',call:'تماس مستقیم',more:'بیشتر بدانید',about_eyebrow:'درباره من',about_title:'از علاقه به فناوری تا مدیریت یک مجموعه‌ی چندلایه',about_p1:'محمد حسین مهدوی، بنیان‌گذار و مدیرکل Lumen Technologies Co. (LTC) است؛ مجموعه‌ای فناورانه، امنیتی و رسانه‌ای که با هدف ارائه خدمات دیجیتال، تولید محتوای حرفه‌ای و حمایت از هنرمندان مستقل شکل گرفته است.',about_p2:'او از سنین نوجوانی با برنامه‌نویسی، امنیت سایبری و مدیریت پروژه‌های دیجیتال آشنا شد و همین دلبستگی زودهنگام، مسیر او را به‌سمت ساختن مجموعه‌ای رسانده که امروز چند حوزه‌ی متفاوت را زیر یک سقف مدیریت می‌کند.',stat_company:'شرکت اصلی',stat_label:'لیبل موسیقی',stat_portal:'پورتال رسمی',stat_priority:'اولویت مجموعه',stat_priority_v:'امنیت و شفافیت',ventures_eyebrow:'فعالیت‌ها',ventures_title:'مجموعه‌ای از پروژه‌های تحت مدیریت',v1:'هسته‌ی اصلی مجموعه؛ ارائه‌ی خدمات فناورانه و امنیتی با تمرکز بر اعتماد و شفافیت در فضای دیجیتال.',v1t:'فناوری · امنیت',v2:'لیبل موسیقی مجموعه، با هدف حمایت از هنرمندان مستقل و نشر آثار موسیقایی باکیفیت.',v2t:'نشر موسیقی',v3h:'مجتمع فرهنگی‌آموزشی امام هادی (ع)',v3:'مدیریت تولید محتوا و رسانه‌ی این مجموعه‌ی فرهنگی، از تولید تا انتشار.',v3t:'رسانه · محتوا',v4h:'پلتفرم خدمات دیجیتال',v4:'پلتفرمی تخصصی برای سفارش ادیت، طراحی پاورپوینت حرفه‌ای و سایر خدمات محتوایی.',v4t:'خدمات دیجیتال',skills_eyebrow:'مهارت‌ها',skills_title:'تخصص‌هایی که این مجموعه را می‌سازند',sg1:'فنی و امنیتی',t1:'امنیت سایبری',t2:'برنامه‌نویسی',t3:'طراحی وب',t4:'مشاوره فناوری',sg2:'رسانه و محتوا',t5:'تولید محتوا',t6:'نشر موسیقی',t7:'طراحی استراتژی',sg3:'مدیریت',t8:'مدیریت پروژه',t9:'مدیریت تیم',quote:'شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.',contact_title:'گفت‌وگو را شروع کنیم',contact_text:'برای همکاری، مشاوره یا هر سوالی درباره‌ی پروژه‌های مجموعه، مستقیم تماس بگیرید.',call2:'تماس مستقیم',copy:'کپی شماره',copied:'شماره کپی شد',hub2:'بازگشت به هاب LTC'},
-    en:{hub:'Back to LTC Hub',name:'Mohammad Hosein <em>Mahdavi</em>',role:'Founder & CEO of <strong>LTC</strong> — where technology, security, and media form one narrative.',call:'Call now',more:'Learn more',about_eyebrow:'About me',about_title:'From a passion for technology to leading a multi-layered organization',about_p1:'Mohammad Hosein Mahdavi is the founder and CEO of Lumen Technologies Co. (LTC); a technology, security, and media group built to deliver digital services, professional content, and support for independent artists.',about_p2:'From a young age he explored programming, cybersecurity, and digital project management — a path that led to building an organization that now spans several domains under one roof.',stat_company:'Core company',stat_label:'Music label',stat_portal:'Official portal',stat_priority:'Company priority',stat_priority_v:'Security & transparency',ventures_eyebrow:'Ventures',ventures_title:'Projects under management',v1:'The core of the group — technology and security services focused on trust and transparency.',v1t:'Tech · Security',v2:'The group music label, supporting independent artists and publishing quality releases.',v2t:'Music publishing',v3h:'Imam Hadi Cultural-Educational Complex',v3:'Managing content production and media for this cultural organization, from creation to publishing.',v3t:'Media · Content',v4h:'Digital services platform',v4:'A specialized platform for editing, professional PowerPoint design, and other content services.',v4t:'Digital services',skills_eyebrow:'Skills',skills_title:'Expertise that builds this organization',sg1:'Technical & security',t1:'Cybersecurity',t2:'Programming',t3:'Web design',t4:'Tech consulting',sg2:'Media & content',t5:'Content production',t6:'Music publishing',t7:'Strategy design',sg3:'Management',t8:'Project management',t9:'Team management',quote:'Transparency, security, and professional ethics in the digital space are the foundations of trust and progress.',contact_title:'Let\'s start a conversation',contact_text:'For collaboration, consulting, or any question about the group\'s projects, reach out directly.',call2:'Call now',copy:'Copy number',copied:'Number copied',hub2:'Back to LTC Hub'}
+    fa:{hub:'بازگشت به هاب LTC',name:'محمد حسین <em>مهدوی</em>',role:'بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.',call:'تماس مستقیم',more:'بیشتر بدانید',about_eyebrow:'درباره من',about_title:'از علاقه به فناوری تا مدیریت یک مجموعه‌ی چندلایه',hub2:'بازگشت به هاب LTC'},
+    en:{hub:'Back to LTC Hub',name:'Mohammad Hosein <em>Mahdavi</em>',role:'Founder & CEO of <strong>LTC</strong> — where technology, security, and media form one narrative.',call:'Call now',more:'Learn more',about_eyebrow:'About me',about_title:'From a passion for technology to leading a multi-layered organization',hub2:'Back to LTC Hub'}
   };
   var lang=localStorage.getItem('ltc_lang')||'fa';
   function apply(){
     var d=I18N[lang]||I18N.fa;
     document.documentElement.lang=lang;
     document.documentElement.dir=lang==='fa'?'rtl':'ltr';
-    document.body.style.direction=lang==='fa'?'rtl':'ltr';
+    document.querySelectorAll('#langToggle button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var k=el.getAttribute('data-i18n');
       if(d[k]) el.innerHTML=d[k];
     });
-    document.querySelectorAll('#langToggle button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang)});
   }
   document.querySelectorAll('#langToggle button').forEach(function(btn){
     btn.addEventListener('click',function(){lang=btn.getAttribute('data-lang');localStorage.setItem('ltc_lang',lang);apply();});
