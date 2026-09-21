@@ -55,6 +55,7 @@ blockquote{font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;max-width:24ch;mar
 .contact-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-l);padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .contact-card h2{font-size:1.6rem;margin-bottom:8px}.contact-card p{color:var(--text-1);max-width:36ch}
 .contact-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+html[dir="ltr"] .contact-actions{align-items:flex-start}
 .phone-display{direction:ltr;font-size:1.2rem;font-weight:700}.phone-display i{color:var(--accent)}
 .copy-note{font-size:.72rem;color:var(--accent);height:14px;opacity:0}.copy-note.show{opacity:1}
 footer{text-align:center;padding:28px 0 72px;color:var(--text-2);font-size:.8rem;border-top:1px solid var(--line)}
@@ -129,11 +130,65 @@ footer{text-align:center;padding:28px 0 72px;color:var(--text-2);font-size:.8rem
 <footer><a href="https://lt-c.iddns.ir" data-i18n="hub2">بازگشت به هاب LTC</a> · Lumen Technologies Co.</footer>
 <script>
 (function(){
-  var I18N={fa:{hub:'بازگشت به هاب LTC',name:'محمد حسین <em>مهدوی</em>',role:'بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.',call:'تماس مستقیم',more:'بیشتر بدانید',about_eyebrow:'درباره من',about_title:'از علاقه به فناوری تا مدیریت یک مجموعه‌ی چندلایه',hub2:'بازگشت به هاب LTC'},en:{hub:'Back to LTC Hub',name:'Mohammad Hosein <em>Mahdavi</em>',role:'Founder & CEO of <strong>LTC</strong> — where technology, security, and media form one narrative.',call:'Call now',more:'Learn more',about_eyebrow:'About me',about_title:'From a passion for technology to leading a multi-layered organization',hub2:'Back to LTC Hub'}};
+  var I18N={
+    fa:{
+      hub:'بازگشت به هاب LTC',name:'محمد حسین <em>مهدوی</em>',role:'بنیان‌گذار و مدیرکل <strong>LTC</strong> — جایی که فناوری، امنیت و رسانه یک روایت واحد می‌شوند.',call:'تماس مستقیم',more:'بیشتر بدانید',
+      about_eyebrow:'درباره من',about_title:'از علاقه به فناوری تا مدیریت یک مجموعه‌ی چندلایه',
+      about_p1:'محمد حسین مهدوی، بنیان‌گذار و مدیرکل Lumen Technologies Co. (LTC) است؛ مجموعه‌ای فناورانه، امنیتی و رسانه‌ای که با هدف ارائه خدمات دیجیتال، تولید محتوای حرفه‌ای و حمایت از هنرمندان مستقل شکل گرفته است.',
+      about_p2:'او از سنین نوجوانی با برنامه‌نویسی، امنیت سایبری و مدیریت پروژه‌های دیجیتال آشنا شد و همین دلبستگی زودهنگام، مسیر او را به‌سمت ساختن مجموعه‌ای رسانده که امروز چند حوزه‌ی متفاوت را زیر یک سقف مدیریت می‌کند.',
+      stat_company:'شرکت اصلی',stat_label:'لیبل موسیقی',stat_portal:'پورتال رسمی',stat_priority:'اولویت مجموعه',stat_priority_v:'امنیت و شفافیت',
+      ventures_eyebrow:'فعالیت‌ها',ventures_title:'مجموعه‌ای از پروژه‌های تحت مدیریت',
+      v1:'هسته‌ی اصلی مجموعه؛ ارائه‌ی خدمات فناورانه و امنیتی با تمرکز بر اعتماد و شفافیت در فضای دیجیتال.',v1t:'فناوری · امنیت',
+      v2:'لیبل موسیقی مجموعه، با هدف حمایت از هنرمندان مستقل و نشر آثار موسیقایی باکیفیت.',v2t:'نشر موسیقی',
+      v3h:'مجمع فرهنگی‌آموزشی امام هادی (ع)',v3:'مدیریت تولید محتوا و رسانه‌ی این مجموعه‌ی فرهنگی، از تولید تا انتشار.',v3t:'رسانه · محتوا',
+      v4h:'پلتفرم خدمات دیجیتال',v4:'پلتفرمی تخصصی برای سفارش ادیت، طراحی پاورپوینت حرفه‌ای و سایر خدمات محتوایی.',v4t:'خدمات دیجیتال',
+      skills_eyebrow:'مهارت‌ها',skills_title:'تخصص‌هایی که این مجموعه را می‌سازند',
+      sg1:'فنی و امنیتی',t1:'امنیت سایبری',t2:'برنامه‌نویسی',t3:'طراحی وب',t4:'مشاوره فناوری',
+      sg2:'رسانه و محتوا',t5:'تولید محتوا',t6:'نشر موسیقی',t7:'طراحی استراتژی',
+      sg3:'مدیریت',t8:'مدیریت پروژه',t9:'مدیریت تیم',
+      quote:'شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.',
+      contact_title:'گفت‌وگو را شروع کنیم',contact_text:'برای همکاری، مشاوره یا هر سوالی درباره‌ی پروژه‌های مجموعه، مستقیم تماس بگیرید.',
+      call2:'تماس مستقیم',copy:'کپی شماره',copied:'شماره کپی شد',hub2:'بازگشت به هاب LTC'
+    },
+    en:{
+      hub:'Back to LTC Hub',name:'Mohammad Hosein <em>Mahdavi</em>',role:'Founder & CEO of <strong>LTC</strong> — where technology, security, and media form one narrative.',call:'Call now',more:'Learn more',
+      about_eyebrow:'About me',about_title:'From a passion for technology to leading a multi-layered organization',
+      about_p1:'Mohammad Hosein Mahdavi is the founder and CEO of Lumen Technologies Co. (LTC), a technology, security, and media group built to deliver digital services, produce professional content, and support independent artists.',
+      about_p2:'He began working with programming, cybersecurity, and digital projects at a young age. That early interest led him to build an organization that now brings several different fields under one roof.',
+      stat_company:'Main company',stat_label:'Music label',stat_portal:'Official portal',stat_priority:'Group priority',stat_priority_v:'Security and transparency',
+      ventures_eyebrow:'Work',ventures_title:'Projects under management',
+      v1:'The core of the group: technology and security services focused on trust and transparency in digital spaces.',v1t:'Technology · Security',
+      v2:'The group music label, created to support independent artists and publish high-quality music.',v2t:'Music publishing',
+      v3h:'Imam Hadi Cultural and Educational Assembly',v3:'Content and media management for this cultural organization, from production to publication.',v3t:'Media · Content',
+      v4h:'Digital services platform',v4:'A specialized platform for editing orders, professional PowerPoint design, and other content services.',v4t:'Digital services',
+      skills_eyebrow:'Skills',skills_title:'The expertise behind this organization',
+      sg1:'Technical and security',t1:'Cybersecurity',t2:'Programming',t3:'Web design',t4:'Technology consulting',
+      sg2:'Media and content',t5:'Content production',t6:'Music publishing',t7:'Strategy design',
+      sg3:'Management',t8:'Project management',t9:'Team management',
+      quote:'Transparency, security, and professional ethics in digital spaces are the foundations of trust and progress.',
+      contact_title:'Let’s start a conversation',contact_text:'For collaboration, consulting, or any question about the group’s projects, call directly.',
+      call2:'Call now',copy:'Copy number',copied:'Number copied',hub2:'Back to LTC Hub'
+    }
+  };
   var lang=localStorage.getItem('ltc_lang')||'fa';
-  function apply(){var d=I18N[lang]||I18N.fa;document.documentElement.lang=lang;document.documentElement.dir=lang==='fa'?'rtl':'ltr';document.querySelectorAll('#langToggle button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(d[k]) el.innerHTML=d[k];});}
-  document.querySelectorAll('#langToggle button').forEach(function(btn){btn.addEventListener('click',function(){lang=btn.getAttribute('data-lang');localStorage.setItem('ltc_lang',lang);apply();});});
-  document.getElementById('copyBtn').addEventListener('click',function(){navigator.clipboard.writeText('09362335266').then(function(){var n=document.getElementById('copyNote');n.classList.add('show');setTimeout(function(){n.classList.remove('show')},1800);});});
+  function apply(){
+    var d=I18N[lang]||I18N.fa;
+    document.documentElement.lang=lang;
+    document.documentElement.dir=lang==='fa'?'rtl':'ltr';
+    document.querySelectorAll('#langToggle button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(d[k]) el.innerHTML=d[k];
+    });
+  }
+  document.querySelectorAll('#langToggle button').forEach(function(btn){
+    btn.addEventListener('click',function(){lang=btn.getAttribute('data-lang');localStorage.setItem('ltc_lang',lang);apply();});
+  });
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    navigator.clipboard.writeText('09362335266').then(function(){
+      var n=document.getElementById('copyNote');n.classList.add('show');setTimeout(function(){n.classList.remove('show')},1800);
+    });
+  });
   apply();
 })();
 </script>
